@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>40代からのAI商品づくり 現在地診断シート | 未来収入ラボ</title>
+    <meta name="description" content="AIとPODを使った商品づくりで、今どこで止まっているかを整理する無料診断シートです">
+    <link rel="stylesheet" href="assets/css/style.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html">未来収入ラボ</a>
+      <nav class="nav" aria-label="主要ページ">
+        <a href="free-present.html">無料プレゼント</a>
+        <a href="free-gift.html">資料一覧</a>
+        <a href="mentor.html">3ヶ月伴走</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-title">
+        <p class="eyebrow">Free Diagnosis</p>
+        <h1>40代からのAI商品づくり<br>現在地診断シート</h1>
+        <p>調べ続けて止まっている状態から、次の7日間でやる1つを決めるための無料資料です</p>
+      </section>
+
+      <section class="section-inner narrow resource-article">
+        <h2>まず今の状態を確認する</h2>
+        <p>当てはまる項目にチェックすると、下に現在地の目安が表示されます</p>
+
+        <form class="diagnosis-form" id="diagnosis-form">
+          <fieldset class="diagnosis-group">
+            <legend>A. まだ始める前で止まっている</legend>
+            <label class="diagnosis-option"><input type="checkbox" name="bottleneck" value="A">EtsyやPODの全体像がまだ分からない</label>
+            <label class="diagnosis-option"><input type="checkbox" name="bottleneck" value="A">PrintifyやPrintfulの違いが分からない</label>
+            <label class="diagnosis-option"><input type="checkbox" name="bottleneck" value="A">初期費用や必要な準備が分からない</label>
+            <label class="diagnosis-option"><input type="checkbox" name="bottleneck" value="A">何を売ればいいか決まっていない</label>
+            <label class="diagnosis-option"><input type="checkbox" name="bottleneck" value="A">英語や海外販売に不安がある</label>
+          </fieldset>
+
+          <fieldset class="diagnosis-group">
+            <legend>B. リサーチで止まっている</legend>
+            <label class="diagnosis-option"><input type="checkbox" name="bottleneck" value="B">売れている商品を見ても、何を参考にすればいいか分からない</label>
+            <label class="diagnosis-option"><input type="checkbox" name="bottleneck" value="B">ニッチが広すぎる</label>
+            <label class="diagnosis-option"><input type="checkbox" name="bottleneck" value="B">競合が多すぎて勝てる気がしない</label>
+            <label class="diagnosis-option"><input type="checkbox" name="bottleneck" value="B">自分の好みで商品を選びがち</label>
+            <label class="diagnosis-option"><input type="checkbox" name="bottleneck" value="B">季節やイベントをどう使えばいいか分からない</label>
+          </fieldset>
+
+          <fieldset class="diagnosis-group">
+            <legend>C. 商品作成で止まっている</legend>
+            <label class="diagnosis-option"><input type="checkbox" name="bottleneck" value="C">AIでどんなプロンプトを書けばいいか分からない</label>
+            <label class="diagnosis-option"><input type="checkbox" name="bottleneck" value="C">画像は作れるが、商品として使えるか判断できない</label>
+            <label class="diagnosis-option"><input type="checkbox" name="bottleneck" value="C">文字が読みにくい、デザインが細かすぎる</label>
+            <label class="diagnosis-option"><input type="checkbox" name="bottleneck" value="C">既存キャラクターやブランドに似ていないか不安</label>
+            <label class="diagnosis-option"><input type="checkbox" name="bottleneck" value="C">Canvaやモックアップで整える作業が苦手</label>
+          </fieldset>
+
+          <fieldset class="diagnosis-group">
+            <legend>D. 出品で止まっている</legend>
+            <label class="diagnosis-option"><input type="checkbox" name="bottleneck" value="D">EtsyとPrintifyの連携が不安</label>
+            <label class="diagnosis-option"><input type="checkbox" name="bottleneck" value="D">タイトル、タグ、説明文が作れない</label>
+            <label class="diagnosis-option"><input type="checkbox" name="bottleneck" value="D">価格や送料の決め方が分からない</label>
+            <label class="diagnosis-option"><input type="checkbox" name="bottleneck" value="D">生産パートナーの設定が分からない</label>
+            <label class="diagnosis-option"><input type="checkbox" name="bottleneck" value="D">出品前に何を確認すればいいか分からない</label>
+          </fieldset>
+
+          <fieldset class="diagnosis-group">
+            <legend>E. 出品後の改善で止まっている</legend>
+            <label class="diagnosis-option"><input type="checkbox" name="bottleneck" value="E">表示回数、クリック数、購入数の見方が分からない</label>
+            <label class="diagnosis-option"><input type="checkbox" name="bottleneck" value="E">何を直せばいいか分からない</label>
+            <label class="diagnosis-option"><input type="checkbox" name="bottleneck" value="E">商品を増やすべきか、既存商品を直すべきか迷う</label>
+            <label class="diagnosis-option"><input type="checkbox" name="bottleneck" value="E">リサーチばかりで改善作業が進まない</label>
+            <label class="diagnosis-option"><input type="checkbox" name="bottleneck" value="E">数字を見ずに感覚で直してしまう</label>
+          </fieldset>
+
+          <div class="diagnosis-actions">
+            <button class="button primary" type="button" id="diagnosis-result-button">診断結果を見る</button>
+            <button class="button secondary" type="reset">チェックを外す</button>
+          </div>
+        </form>
+
+        <div class="diagnosis-result" id="diagnosis-result" aria-live="polite">
+          <p class="result-label">診断結果</p>
+          <h2>まだチェックされていません</h2>
+          <p>気になる項目にチェックを入れると、今のボトルネックと次にやることが表示されます</p>
+        </div>
+      </section>
+
+      <section class="section-inner narrow resource-article">
+        <h2>一番近いボトルネック</h2>
+        <div class="simple-table-wrap">
+          <table class="simple-table">
+            <thead>
+              <tr><th>一番多い場所</th><th>今の状態</th><th>次にやること</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>A</td><td>全体像が曖昧</td><td>販売の流れと必要準備を整理する</td></tr>
+              <tr><td>B</td><td>売る相手とテーマが曖昧</td><td>ニッチを「誰に、どんな場面で」まで絞る</td></tr>
+              <tr><td>C</td><td>商品化の判断が曖昧</td><td>AI案を商品として使える形に整える</td></tr>
+              <tr><td>D</td><td>出品作業が曖昧</td><td>出品前チェックリストに沿って1商品だけ進める</td></tr>
+              <tr><td>E</td><td>改善箇所が曖昧</td><td>表示、クリック、購入のどこで止まっているかを見る</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section-inner narrow resource-article">
+        <h2>次の7日間でやること</h2>
+        <h3>Aが多かった人</h3>
+        <p>Etsy、Printify、PODの役割を1枚に整理し、必要なアカウントと費用を確認します</p>
+        <h3>Bが多かった人</h3>
+        <p>趣味、職業、家族、イベント、季節から候補を出し、1つのテーマを具体的な人と場面に絞ります</p>
+        <h3>Cが多かった人</h3>
+        <p>AIで商品案を20個出し、そのうち3個だけデザイン案にして、読みやすさと権利リスクを見ます</p>
+        <h3>Dが多かった人</h3>
+        <p>1商品だけPrintifyで作り、Etsy出品に必要なタイトル、タグ、説明文、価格を確認します</p>
+        <h3>Eが多かった人</h3>
+        <p>表示回数、クリック、購入のどこで止まっているかを見て、画像かタイトルのどちらか1つだけ直します</p>
+      </section>
+
+      <section class="section-inner narrow resource-article">
+        <div class="notice compact">
+          <h2>大切な前提</h2>
+          <p>この診断シートは売上を保証するものではなく、AIもPODも、作業をゼロにしてくれるものではなく、小さく作って反応を見ながら改善するための手段です</p>
+        </div>
+      </section>
+
+      <section class="band soft-cta">
+        <div class="section-inner">
+          <p class="eyebrow">Next</p>
+          <h2>一人で調べ続けて止まっている方へ</h2>
+          <p>自分の場合どう進めればいいか整理したい方は、90分相談で現在地と次の一手を一緒に決められます</p>
+          <a class="button primary" href="https://coconala.com/services/3526967">90分相談で整理する</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>未来収入ラボ</p>
+      <p>AIとPODを活用して、海外販売に挑戦するための実践情報をお届けします</p>
+    </footer>
+    <script>
+      const diagnosisMap = {
+        A: {
+          title: "A. 全体像が曖昧な状態です",
+          text: "まずはEtsy、POD、Printify、AIツールの役割を整理し、1商品だけ作る前提で準備を小さく進めましょう"
+        },
+        B: {
+          title: "B. リサーチで止まりやすい状態です",
+          text: "広いジャンルで考えず、誰に、どんな場面で使う商品かまで絞り、1〜2ヶ月先のイベントを1つ選びましょう"
+        },
+        C: {
+          title: "C. 商品作成の判断で止まりやすい状態です",
+          text: "AIで案を出すだけで終わらせず、読みやすさ、権利リスク、商品として使えるかを3案だけ確認しましょう"
+        },
+        D: {
+          title: "D. 出品作業で止まりやすい状態です",
+          text: "完璧なショップを目指さず、タイトル、タグ、説明文、価格を最低限そろえて、1商品だけ出品する流れを作りましょう"
+        },
+        E: {
+          title: "E. 出品後の改善で止まりやすい状態です",
+          text: "表示、クリック、購入のどこで止まっているかを見て、画像かタイトルのどちらか1つだけ直しましょう"
+        }
+      };
+
+      const form = document.querySelector("#diagnosis-form");
+      const result = document.querySelector("#diagnosis-result");
+      const resultButton = document.querySelector("#diagnosis-result-button");
+
+      function calculateDiagnosis() {
+        const counts = { A: 0, B: 0, C: 0, D: 0, E: 0 };
+        form.querySelectorAll("input[type='checkbox']:checked").forEach((input) => {
+          counts[input.value] += 1;
+        });
+
+        const entries = Object.entries(counts).sort((a, b) => b[1] - a[1]);
+        const [topKey, topCount] = entries[0];
+
+        if (topCount === 0) {
+          result.innerHTML = '<p class="result-label">診断結果</p><h2>まだチェックされていません</h2><p>気になる項目にチェックを入れると、今のボトルネックと次にやることが表示されます</p>';
+          return;
+        }
+
+        const top = diagnosisMap[topKey];
+        const scoreText = entries.map(([key, count]) => `${key}: ${count}`).join(" / ");
+        result.innerHTML = `<p class="result-label">診断結果</p><h2>${top.title}</h2><p>${top.text}</p><p class="result-score">${scoreText}</p>`;
+      }
+
+      resultButton.addEventListener("click", calculateDiagnosis);
+      form.addEventListener("change", calculateDiagnosis);
+      form.addEventListener("reset", () => {
+        window.setTimeout(calculateDiagnosis, 0);
+      });
+    </script>
+  </body>
+</html>

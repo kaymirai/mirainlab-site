@@ -1,0 +1,10 @@
+.env
+.env.*
+node_modules/
+dist/
+build/
+docs/
+supabase/
+preview-*.png
+.DS_Store
+Thumbs.db
