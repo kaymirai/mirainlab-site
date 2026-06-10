@@ -40,7 +40,7 @@ supabase/functions/unsubscribe/index.ts
 - `free-present.html`: `register-lead` のURL
 - `unsubscribe.html`: `unsubscribe` のURL
 - `free-gift.html`: PDFのGoogleドライブURL
-- `mentor.html`: ココナラ相談URL
+- `mentor.html`: 3ヶ月伴走と申込み導線
 - `privacy.html`: 問い合わせ先と運営者情報
 - `legal.html`: 特定商取引法に基づく表記
 - Supabase Secrets: `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`, `RESEND_API_KEY`, `FROM_EMAIL`, `FREE_GIFT_URL`, `PUBLIC_SITE_URL`, `ALLOWED_ORIGIN`
