@@ -1,6 +1,6 @@
 # mirainlab-site
 
-AI×Etsy海外PODの無料プレゼント導線用サイトです。
+AIとEtsy海外販売の無料プレゼント導線用サイトです。
 
 ## 構成
 

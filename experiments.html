@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>表現サンプル | 未来収入ラボ</title>
+    <meta name="description" content="未来収入ラボのLPに使えそうなスクロール表現、ズーム表現、モーフィングUIの検討用サンプルです">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/experiments.css">
+  </head>
+  <body class="experiment-page">
+    <header class="site-header experiment-header">
+      <a class="brand" href="index.html">未来収入ラボ</a>
+      <nav class="nav" aria-label="主要ページ">
+        <a href="index.html">LPへ戻る</a>
+        <a href="#parallax">Parallax</a>
+        <a href="#tunnel">Tunnel</a>
+        <a href="#zoom">Zoom</a>
+        <a href="#morph">Morph</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="experiment-hero" aria-labelledby="experiment-title">
+        <div class="experiment-hero-copy">
+          <p class="eyebrow">Design Lab</p>
+          <h1 id="experiment-title">LPに使える動きの実験室</h1>
+          <p>
+            受注生産型の商品販売メンターシップの信頼感を崩さず、視線誘導に使えそうな表現だけを小さく試しています。
+            本番投入するなら、派手さよりも読みやすさを優先します。
+          </p>
+        </div>
+        <div class="signal-board" aria-hidden="true">
+          <span class="signal-line"></span>
+          <span class="signal-dot dot-a"></span>
+          <span class="signal-dot dot-b"></span>
+          <span class="signal-dot dot-c"></span>
+          <strong>Research</strong>
+          <strong>Create</strong>
+          <strong>List</strong>
+          <strong>Improve</strong>
+        </div>
+      </section>
+
+      <section class="sample-section parallax-lab" id="parallax" aria-labelledby="parallax-title">
+        <div class="sample-copy">
+          <p class="eyebrow">01 / Parallax</p>
+          <h2 id="parallax-title">奥行きで「進んでいる感」を出す</h2>
+          <p>
+            背景・中景・前景を少しずつ違う速度で動かす見せ方です。
+            LPでは、最初のロードマップや「現在地診断」の入口に向いています。
+          </p>
+        </div>
+        <div class="parallax-stage" aria-label="リサーチから改善までのロードマップ表現">
+          <div class="parallax-layer layer-back"></div>
+          <div class="parallax-layer layer-mid"></div>
+          <div class="parallax-card card-one">
+            <span>01</span>
+            <strong>市場を見る</strong>
+          </div>
+          <div class="parallax-card card-two">
+            <span>02</span>
+            <strong>商品を作る</strong>
+          </div>
+          <div class="parallax-card card-three">
+            <span>03</span>
+            <strong>反応で直す</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="sample-section tunnel-lab" id="tunnel" aria-labelledby="tunnel-title">
+        <div class="sample-copy">
+          <p class="eyebrow">02 / Scroll Tunnel</p>
+          <h2 id="tunnel-title">スクロールで講座の道筋へ潜っていく</h2>
+          <p>
+            画面中央へ視線を集める表現です。講義の世界観を出せますが、使いすぎると読む負担が上がるので、
+            本番では1ブロックだけが良さそうです。
+          </p>
+        </div>
+        <div class="tunnel-stage" aria-label="講座ステップを奥へ進むように見せる表現">
+          <div class="tunnel-ring ring-one"></div>
+          <div class="tunnel-ring ring-two"></div>
+          <div class="tunnel-ring ring-three"></div>
+          <div class="tunnel-core">
+            <span>3ヶ月伴走</span>
+            <strong>迷いを減らす導線</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="sample-section zoom-lab" id="zoom" aria-labelledby="zoom-title">
+        <div class="sample-copy">
+          <p class="eyebrow">03 / Infinite Zoom</p>
+          <h2 id="zoom-title">大きな全体像から具体タスクへズームする</h2>
+          <p>
+            「海外販売」という広いテーマから、今日やる作業へ寄っていく見せ方です。
+            カリキュラム紹介や診断結果の次画面に合います。
+          </p>
+        </div>
+        <div class="zoom-stage" aria-label="全体像から具体タスクへ近づく表現">
+          <div class="zoom-frame frame-one">
+            <span>海外販売</span>
+            <div class="zoom-frame frame-two">
+              <span>Etsy出品</span>
+              <div class="zoom-frame frame-three">
+                <span>タイトル改善</span>
+                <div class="zoom-frame frame-four">
+                  <span>今日の一手</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="sample-section morph-lab" id="morph" aria-labelledby="morph-title">
+        <div class="sample-copy">
+          <p class="eyebrow">04 / Morphing UI</p>
+          <h2 id="morph-title">受講者の現在地に合わせてUIを変える</h2>
+          <p>
+            ボタンで状態を切り替えると、カードの形と内容が滑らかに変わります。
+            診断結果、カリキュラム提案、相談前アンケートに向いています。
+          </p>
+        </div>
+        <div class="morph-panel">
+          <div class="morph-controls" role="tablist" aria-label="現在地サンプル">
+            <button class="morph-tab is-active" type="button" role="tab" aria-selected="true" data-state="start">準備中</button>
+            <button class="morph-tab" type="button" role="tab" aria-selected="false" data-state="listing">出品前</button>
+            <button class="morph-tab" type="button" role="tab" aria-selected="false" data-state="improve">改善中</button>
+          </div>
+          <article class="morph-card" aria-live="polite">
+            <span class="morph-label">Start</span>
+            <h3>まずは全体像と道具を整理</h3>
+            <p>アカウント、受注生産型の商品販売サービス、初期費用、最初のリサーチ手順を短く固めます。</p>
+            <a class="button primary" href="mentor.html">伴走ページを見る</a>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <script src="assets/js/experiments.js"></script>
+  </body>
+</html>
