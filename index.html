@@ -7,7 +7,7 @@
     <meta name="description" content="AIと受注生産型の商品販売を使ってEtsy海外販売に挑戦したい方向けの実践ロードマップ、無料資料、申込み導線をまとめています">
     <link rel="stylesheet" href="assets/css/style.css">
   </head>
-  <body>
+  <body class="home-page">
     <header class="site-header">
       <a class="brand" href="index.html">未来収入ラボ</a>
       <nav class="nav" aria-label="主要ページ">
@@ -18,10 +18,10 @@
     </header>
 
     <main>
-      <section class="hero compact-hero">
+      <section class="hero compact-hero interactive-hero">
         <div class="hero-copy">
           <p class="eyebrow">AI × Etsy海外販売</p>
-          <h1>在庫を持たずに、<br>海外販売へ挑戦する<br>力を育てる</h1>
+          <h1>在庫を持たずに、<br>海外販売へ挑戦する<br>流れをつくる</h1>
           <p class="lead">
             商品リサーチからAIデザイン、Etsy出品、改善まで<br class="mobile-only">海外販売の流れを学べる入口です
           </p>
@@ -36,8 +36,44 @@
           </div>
           <p class="microcopy">Drive内の実践資料をもとに、初心者向けに読み替えた公開初期版です</p>
         </div>
-        <div class="hero-visual" aria-label="AIと受注生産型の商品販売の流れ">
-          <img src="assets/images/roadmap-visual.svg" alt="リサーチ、作成、出品、改善の流れ">
+        <div class="hero-visual product-lab" aria-label="AIと受注生産型の商品販売で商品案が形になる流れ">
+          <canvas class="product-lab-canvas" width="760" height="760" data-product-canvas aria-hidden="true"></canvas>
+          <div class="product-lab-grid">
+            <div class="idea-stack" aria-label="商品テーマの例">
+              <p>Theme</p>
+              <button class="idea-chip is-active" type="button" data-product="botanical">Botanical mug</button>
+              <button class="idea-chip" type="button" data-product="teacher">Teacher gift</button>
+              <button class="idea-chip" type="button" data-product="dog">Dog mom tee</button>
+            </div>
+
+            <article class="product-preview" aria-live="polite">
+              <div class="mockup-art" data-product-art>
+                <span class="art-line line-one"></span>
+                <span class="art-line line-two"></span>
+                <span class="art-mark"></span>
+              </div>
+              <div>
+                <p class="preview-label" data-product-label>Research seed</p>
+                <h2 data-product-title>植物好き向けのマグ案</h2>
+                <p data-product-body>季節イベント、検索語、参考画像から、真似ではない方向性へ落とし込みます。</p>
+              </div>
+              <div class="listing-metrics" aria-label="商品ページで確認する項目">
+                <span data-product-tag-one>検索語</span>
+                <span data-product-tag-two>画像</span>
+                <span data-product-tag-three>改善</span>
+              </div>
+            </article>
+
+            <div class="process-panel">
+              <ol class="process-steps" aria-label="商品づくりの流れ">
+                <li class="is-active" data-step="0"><span>01</span> リサーチ</li>
+                <li data-step="1"><span>02</span> 商品案</li>
+                <li data-step="2"><span>03</span> 出品文</li>
+                <li data-step="3"><span>04</span> 改善</li>
+              </ol>
+              <p data-product-note>画面上のテーマを押すと、商品案の方向性が切り替わります。</p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -123,5 +159,6 @@
       <p>未来収入ラボ</p>
       <p>AIと受注生産型の商品販売を活用して、海外販売に挑戦するための実践情報をお届けします</p>
     </footer>
+    <script src="assets/js/home.js"></script>
   </body>
 </html>
