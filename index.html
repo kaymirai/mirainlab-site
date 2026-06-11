@@ -8,32 +8,58 @@
     <link rel="stylesheet" href="assets/css/style.css">
   </head>
   <body class="home-page">
+    <div class="scroll-progress" aria-hidden="true"></div>
     <header class="site-header">
       <a class="brand" href="index.html">未来収入ラボ</a>
       <nav class="nav" aria-label="主要ページ">
         <a href="free-present.html">無料プレゼント</a>
-        <a href="free-gift.html">資料一覧</a>
+        <a href="free-gift.html">3点セット</a>
         <a href="mentor.html">3ヶ月伴走</a>
       </nav>
     </header>
 
     <main>
-      <section class="hero compact-hero focused-hero">
+      <section class="hero compact-hero interactive-hero modern-hero">
         <div class="hero-copy">
           <p class="eyebrow">AI × Etsy海外販売</p>
-          <h1 class="kinetic-title" aria-label="在庫を持たずに、海外販売へ挑戦する流れをつくる">
-            <span>在庫を持たずに、</span>
-            <span>海外販売へ挑戦する</span>
-            <span>流れをつくる</span>
+          <h1 class="kinetic-title" aria-label="AIで作る、Etsyに出す、数字で直す">
+            <span>AIで作る</span>
+            <span>Etsyに出す</span>
+            <span>数字で直す</span>
           </h1>
           <p class="lead">
-            商品リサーチからAIデザイン、Etsy出品、改善まで<br class="mobile-only">海外販売の流れを学べる入口です
+            商品リサーチ、参考画像の読み解き、出品、改善まで。<br class="mobile-only">海外販売の最初の一歩を、順番で確認できます
           </p>
           <div class="hero-actions">
-            <a class="button primary" href="diagnosis.html">まず現在地を診断する</a>
-            <a class="button secondary" href="free-gift.html">無料資料を見る</a>
+            <a class="button primary" href="free-gift.html">無料プレゼントを見る</a>
+            <a class="button secondary" href="mentor.html">3ヶ月伴走を見る</a>
           </div>
-          <p class="microcopy">未来収入ラボで検証しながら、初心者向けに整理している公開初期版です</p>
+          <p class="microcopy">無料相談を増やすための導線ではなく、まず自分で判断できる材料を渡すための入口です</p>
+        </div>
+
+        <div class="hero-lab" aria-label="未来収入ラボの学習フロー">
+          <canvas id="lab-flow-canvas" class="lab-flow-canvas" aria-hidden="true"></canvas>
+          <div class="lab-dashboard">
+            <p class="lab-kicker">LIVE ROADMAP</p>
+            <div class="lab-rail" aria-hidden="true">
+              <span>Research</span>
+              <span>Product</span>
+              <span>Listing</span>
+              <span>Improve</span>
+            </div>
+            <article class="lab-panel">
+              <span class="card-number">01</span>
+              <h2>参考画像から、真似ではない商品案へ</h2>
+              <p>AIに「画像の特徴」「買う人」「使う場面」を読ませて、商品化できる方向に変換します。</p>
+              <div class="lab-meter" aria-hidden="true"><span></span></div>
+            </article>
+            <div class="lab-mini-grid">
+              <span>ニッチ</span>
+              <span>英語タイトル</span>
+              <span>13タグ</span>
+              <span>改善メモ</span>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -45,63 +71,85 @@
           </div>
           <div class="section-heading">
             <p class="eyebrow">Free Gift</p>
-            <h2>まずは現在地と、作る順番を整理する</h2>
+            <h2>無料プレゼントは、読むだけで終わらない3点セットにする</h2>
             <p>
-              未来収入ラボで使うチェックリストやニッチカレンダーを、初心者が迷いやすい順番でまとめています
+              他人の資料をそのまま置くのではなく、Etsy公式リソースとDrive内の参考資料を学習し、未来収入ラボ向けに作り直した判断材料として整えます
             </p>
           </div>
           <div class="gift-grid">
             <article class="card">
               <span class="card-number">01</span>
-              <h3>現在地診断シート</h3>
-              <p>アクセス、クリック、商品ページ、作業の散らかりから、今の詰まりを整理します</p>
+              <h3>海外販売スタートアップ・チェックリスト</h3>
+              <p>ショップ開設前、Printify連携、出品前確認まで、最初に抜けやすい項目を確認します</p>
             </article>
             <article class="card">
               <span class="card-number">02</span>
-              <h3>季節ニッチカレンダー</h3>
-              <p>年間イベントと仕込み時期を見ながら、次に作るテーマを決めます</p>
+              <h3>AI商品企画＆SEOプロンプトワーク</h3>
+              <p>固定プロンプトではなく、参考画像を毎回読ませて商品案、タイトル、タグに落とします</p>
             </article>
             <article class="card">
               <span class="card-number">03</span>
-              <h3>はじめ方ロードマップ</h3>
-              <p>必要な準備、初期費用、最初の30日にやることを整理します</p>
+              <h3>週末ショッププランナー</h3>
+              <p>平日夜と週末で進める人向けに、次の7日でやることを1つに絞ります</p>
             </article>
             <article class="card">
               <span class="card-number">04</span>
-              <h3>出品前チェック</h3>
-              <p>Etsy、Printify、商品画像、タイトル、タグで確認する項目をまとめます</p>
-            </article>
-            <article class="card">
-              <span class="card-number">05</span>
-              <h3>参考画像ワーク</h3>
-              <p>参考画像をAIに読ませ、真似にならない商品化の方向性を整理します</p>
-            </article>
-            <article class="card">
-              <span class="card-number">06</span>
-              <h3>デザイン見直し7項目</h3>
-              <p>読みやすさ、余白、配色、権利リスクなど、出品前の見直しポイントです</p>
+              <h3>現在地診断</h3>
+              <p>作業が散っているときに、見るべき数字と次の改善箇所を整理します</p>
             </article>
           </div>
           <div class="hero-actions">
-            <a class="button primary" href="free-gift.html">無料資料一覧を見る</a>
+            <a class="button primary" href="free-gift.html">3点セットを見る</a>
           </div>
+        </div>
+      </section>
+
+      <section class="section-inner scrolly-section" aria-labelledby="flow-title">
+        <div class="scrolly-sticky">
+          <p class="eyebrow">Scroll Story</p>
+          <h2 id="flow-title">スクロールするほど、やる順番が見える</h2>
+          <p>
+            「おしゃれな動き」は装飾ではなく、初心者が迷いやすい順番を体で追えるようにするために使います。
+          </p>
+        </div>
+        <div class="scrolly-steps">
+          <article class="step-card">
+            <span class="step-index">01</span>
+            <h3>市場を見る</h3>
+            <p>季節イベント、検索語、参考画像から「誰に、どんな場面で使われるか」を絞ります。</p>
+          </article>
+          <article class="step-card">
+            <span class="step-index">02</span>
+            <h3>商品案へ変換する</h3>
+            <p>AIに丸投げせず、画像の特徴と購入者の用途を読み解いて、真似にならない方向に落とします。</p>
+          </article>
+          <article class="step-card">
+            <span class="step-index">03</span>
+            <h3>Etsyに出す</h3>
+            <p>タイトル、タグ、商品説明、画像、Printify設定を出品前チェックで確認します。</p>
+          </article>
+          <article class="step-card">
+            <span class="step-index">04</span>
+            <h3>数字で直す</h3>
+            <p>アクセス、クリック、購入のどこで止まっているかを見て、画像かタイトルのどちらか1つを直します。</p>
+          </article>
         </div>
       </section>
 
       <section class="section-inner flow-section">
         <div class="section-heading">
           <p class="eyebrow">Path</p>
-          <h2>無料から、必要な支援へ</h2>
-          <p>自分で進めたい方にも、個別に整理しながら進めたい方にも合うように、段階を分けています</p>
+          <h2>迷わせない導線にする</h2>
+          <p>無料で問い合わせを増やすのではなく、まず資料で確認し、必要なら伴走の申込みへ進む流れにします</p>
         </div>
         <ol class="path-list">
           <li>
-            <strong>ブラウザ診断</strong>
-            <span>メールなしで現在地と、次に見るページを確認する</span>
+            <strong>無料プレゼント</strong>
+            <span>3点セットで全体像、商品案、次の7日を確認する</span>
           </li>
           <li>
-            <strong>無料資料</strong>
-            <span>ロードマップ、チェックリスト、参考画像ワークを見る</span>
+            <strong>現在地診断</strong>
+            <span>迷っている場合だけ、止まっている場所を確認する</span>
           </li>
           <li>
             <strong>ココナラ</strong>
@@ -115,9 +163,16 @@
       </section>
     </main>
 
+    <aside class="floating-cta" aria-label="主要導線">
+      <span>まず資料で確認</span>
+      <a class="button primary" href="free-gift.html">無料プレゼント</a>
+      <a class="button secondary" href="mentor.html">伴走を見る</a>
+    </aside>
+
     <footer class="site-footer">
       <p>未来収入ラボ</p>
       <p>AIと受注生産型の商品販売を活用して、海外販売に挑戦するための実践情報をお届けします</p>
     </footer>
+    <script src="assets/js/home-experience.js"></script>
   </body>
 </html>
