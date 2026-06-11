@@ -15,6 +15,10 @@
   --shadow: 0 18px 54px rgba(23, 26, 24, 0.09);
 }
 
+@view-transition {
+  navigation: auto;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -301,17 +305,130 @@ img {
 }
 
 .focused-hero {
+  position: relative;
   grid-template-columns: minmax(0, 760px);
   justify-content: start;
   min-height: 64vh;
+  overflow: hidden;
 }
 
 .focused-hero .hero-copy {
+  position: relative;
+  z-index: 1;
   max-width: 760px;
 }
 
 .focused-hero h1 {
   font-size: clamp(2.5rem, 6vw, 5rem);
+}
+
+.focused-hero::before {
+  position: absolute;
+  inset: 26px 4vw 24px auto;
+  width: min(46vw, 620px);
+  content: "";
+  background:
+    linear-gradient(130deg, rgba(31, 111, 91, 0.1), rgba(255, 255, 255, 0) 46%),
+    linear-gradient(30deg, rgba(229, 100, 47, 0.12), rgba(255, 255, 255, 0) 58%);
+  border: 1px solid rgba(31, 111, 91, 0.18);
+  clip-path: polygon(12% 0, 100% 7%, 88% 100%, 0 87%);
+  opacity: 0.85;
+  animation: paper-drift 14s ease-in-out infinite alternate;
+}
+
+.kinetic-title {
+  display: grid;
+  gap: 0.05em;
+}
+
+.kinetic-title span {
+  display: block;
+  overflow: hidden;
+  line-height: 0.98;
+  animation: title-rise 780ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.kinetic-title span:nth-child(2) {
+  animation-delay: 120ms;
+}
+
+.kinetic-title span:nth-child(3) {
+  animation-delay: 240ms;
+}
+
+@keyframes title-rise {
+  from {
+    opacity: 0;
+    transform: translateY(0.45em);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes paper-drift {
+  from {
+    transform: translate3d(0, 0, 0) rotate(-1deg);
+  }
+
+  to {
+    transform: translate3d(-22px, 18px, 0) rotate(1.5deg);
+  }
+}
+
+@supports (animation-timeline: view()) {
+  .section-heading,
+  .editor-note,
+  .card,
+  .path-list li,
+  .download-item,
+  .feature-row {
+    animation: reveal-on-scroll both ease-out;
+    animation-timeline: view();
+    animation-range: entry 0% cover 32%;
+  }
+
+  .card:nth-child(2n),
+  .path-list li:nth-child(2n) {
+    animation-name: reveal-on-scroll-alt;
+  }
+}
+
+@keyframes reveal-on-scroll {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes reveal-on-scroll-alt {
+  from {
+    opacity: 0;
+    transform: translateY(28px) rotate(-0.7deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+  }
 }
 
 .product-lab {
