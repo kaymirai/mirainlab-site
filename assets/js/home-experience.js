@@ -5,6 +5,9 @@
   if (!canvas || prefersReducedMotion) return;
 
   const ctx = canvas.getContext("2d");
+  if (!ctx) return;
+
+  const hero = canvas.closest(".hero-lab");
   const pointer = { x: 0.68, y: 0.34, active: false };
   const particles = Array.from({ length: 36 }, (_, index) => ({
     x: (index % 9) / 8,
@@ -16,6 +19,8 @@
   let width = 0;
   let height = 0;
   let dpr = 1;
+  let frameId = null;
+  let isVisible = true;
 
   function resize() {
     const rect = canvas.getBoundingClientRect();
@@ -68,7 +73,18 @@
       ctx.fill();
     });
 
-    requestAnimationFrame(render);
+    frameId = requestAnimationFrame(render);
+  }
+
+  function start() {
+    if (frameId || document.hidden || !isVisible) return;
+    frameId = requestAnimationFrame(render);
+  }
+
+  function stop() {
+    if (!frameId) return;
+    cancelAnimationFrame(frameId);
+    frameId = null;
   }
 
   canvas.addEventListener("pointermove", (event) => {
@@ -83,6 +99,28 @@
   });
 
   resize();
-  new ResizeObserver(resize).observe(canvas);
-  requestAnimationFrame(render);
+
+  if ("ResizeObserver" in window) {
+    new ResizeObserver(resize).observe(canvas);
+  } else {
+    window.addEventListener("resize", resize, { passive: true });
+  }
+
+  if ("IntersectionObserver" in window && hero) {
+    new IntersectionObserver(
+      (entries) => {
+        isVisible = entries.some((entry) => entry.isIntersecting);
+        if (isVisible) start();
+        else stop();
+      },
+      { threshold: 0.08 }
+    ).observe(hero);
+  }
+
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) stop();
+    else start();
+  });
+
+  start();
 })();
