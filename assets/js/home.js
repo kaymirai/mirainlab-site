@@ -5,6 +5,7 @@ const productArt = document.querySelector("[data-product-art]");
 const productLabel = document.querySelector("[data-product-label]");
 const productTitle = document.querySelector("[data-product-title]");
 const productBody = document.querySelector("[data-product-body]");
+const productMockup = document.querySelector("[data-product-mockup]");
 const productTagOne = document.querySelector("[data-product-tag-one]");
 const productTagTwo = document.querySelector("[data-product-tag-two]");
 const productTagThree = document.querySelector("[data-product-tag-three]");
@@ -12,33 +13,36 @@ const productNote = document.querySelector("[data-product-note]");
 const processSteps = document.querySelectorAll(".process-steps li");
 
 const productCopy = {
-  botanical: {
+  mothersday: {
     accent: "#1f6f5b",
-    label: "Research seed",
-    title: "植物好き向けのマグ案",
-    body: "季節イベント、検索語、参考画像から、真似ではない方向性へ落とし込みます。",
-    tags: ["botanical", "gift idea", "mug mockup"],
-    note: "まずは買う人と使う場面を絞り、商品化しやすい形へ整理します。",
+    label: "商品案のたたき台",
+    title: "母の日に贈る花柄マグ",
+    body: "誰に、どんな場面で、何を届ける商品かを整理してから、参考画像とAIで方向性を固めます。",
+    mockup: "マグカップ例",
+    tags: ["購入者", "使う場面", "出品前確認"],
+    note: "母の日に贈る相手、使う場面、避けたい表現を先に決めてから商品案にします。",
   },
   teacher: {
     accent: "#315ac6",
-    label: "Listing draft",
-    title: "先生向けギフトの出品案",
-    body: "贈る相手、季節、短いフレーズを組み合わせて、タイトルと画像の方向性を決めます。",
-    tags: ["teacher gift", "season", "title"],
-    note: "出品文はキーワードだけでなく、誰がなぜ買うかまで揃えます。",
+    label: "出品ページの方向性",
+    title: "先生に贈る感謝ギフト",
+    body: "贈る相手、季節、短いフレーズを組み合わせて、タイトルと1枚目画像の方向性を決めます。",
+    mockup: "ギフト商品例",
+    tags: ["贈る相手", "季節", "タイトル"],
+    note: "検索語だけでなく、誰がなぜ買うかまで揃えてから出品文にします。",
   },
   dog: {
     accent: "#bb8527",
-    label: "Improve loop",
-    title: "犬好き向けTシャツの改善案",
-    body: "クリックされる画像、読みやすい文字、避ける表現を確認して、次の修正に絞ります。",
-    tags: ["dog mom", "readability", "next fix"],
+    label: "改善する時の見方",
+    title: "犬好き向けTシャツ案",
+    body: "クリックされる画像、読みやすい文字、避ける表現を確認して、次に直す場所を1つに絞ります。",
+    mockup: "Tシャツ例",
+    tags: ["画像", "読みやすさ", "次の修正"],
     note: "反応が弱い時は、画像、検索語、商品説明のどこで止まっているかを見ます。",
   },
 };
 
-let activeProduct = "botanical";
+let activeProduct = "mothersday";
 let activeStep = 0;
 let particles = [];
 let pointer = { x: 0.5, y: 0.5 };
@@ -61,6 +65,7 @@ const setProduct = (key) => {
   productLabel.textContent = next.label;
   productTitle.textContent = next.title;
   productBody.textContent = next.body;
+  productMockup.textContent = next.mockup;
   productTagOne.textContent = next.tags[0];
   productTagTwo.textContent = next.tags[1];
   productTagThree.textContent = next.tags[2];

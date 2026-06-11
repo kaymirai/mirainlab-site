@@ -228,7 +228,7 @@ img {
   cursor: pointer;
 }
 
-.button::after {
+.button[href]::after {
   margin-left: 8px;
   content: "→";
   transform: translateY(-1px);
@@ -303,7 +303,7 @@ img {
 
 .product-lab-grid {
   display: grid;
-  grid-template-columns: minmax(126px, 0.42fr) minmax(220px, 1fr);
+  grid-template-columns: minmax(0, 1fr);
   gap: 14px;
   align-items: stretch;
 }
@@ -320,12 +320,14 @@ img {
 
 .idea-stack {
   display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   align-content: start;
   gap: 10px;
   padding: 16px;
 }
 
 .idea-stack p {
+  grid-column: 1 / -1;
   margin: 0 0 2px;
   color: var(--coral);
   font-size: 0.76rem;
@@ -343,7 +345,7 @@ img {
   font: inherit;
   font-size: 0.86rem;
   font-weight: 900;
-  text-align: left;
+  text-align: center;
   cursor: pointer;
 }
 
@@ -397,6 +399,20 @@ img {
   border: 9px solid var(--ink);
   border-left: 0;
   border-radius: 0 28px 28px 0;
+}
+
+.mockup-caption {
+  position: absolute;
+  left: 14px;
+  bottom: 12px;
+  z-index: 1;
+  padding: 4px 8px;
+  color: var(--green-dark);
+  background: rgba(255, 255, 255, 0.76);
+  border: 1px solid var(--soft-brand-line);
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 900;
 }
 
 .art-line,
@@ -819,13 +835,11 @@ img {
 .source-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 8px;
   align-items: center;
   margin-top: 22px;
-  padding: 14px;
-  background: var(--soft-brand);
-  border: 1px solid var(--soft-brand-line);
-  border-radius: 8px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
 }
 
 .source-links p {
@@ -840,13 +854,13 @@ img {
 .tag-cloud span {
   display: inline-flex;
   align-items: center;
-  min-height: 34px;
-  padding: 6px 10px;
+  min-height: 30px;
+  padding: 4px 8px;
   color: var(--ink);
-  background: var(--white);
+  background: rgba(255, 255, 255, 0.68);
   border: 1px solid var(--line);
   border-radius: 999px;
-  font-size: 0.88rem;
+  font-size: 0.82rem;
   font-weight: 800;
   text-decoration: none;
 }
