@@ -968,6 +968,207 @@ img {
   border-radius: 8px;
 }
 
+.resource-summary,
+.outcome-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin: 0 0 34px;
+}
+
+.resource-summary article,
+.outcome-card,
+.write-box,
+.support-tool-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: 0 14px 40px rgba(23, 26, 24, 0.06);
+}
+
+.resource-summary article,
+.outcome-card {
+  padding: 18px;
+}
+
+.resource-summary span,
+.outcome-card span,
+.write-box span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  margin-bottom: 10px;
+  color: var(--coral);
+  font-size: 0.78rem;
+  font-weight: 900;
+}
+
+.resource-summary p,
+.outcome-card p,
+.write-box p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.outcome-card h2 {
+  margin: 0 0 8px;
+  font-size: 1.12rem;
+}
+
+.worksheet-panel {
+  display: grid;
+  gap: 14px;
+  padding: 24px;
+  background: rgba(234, 244, 239, 0.72);
+  border: 1px solid var(--soft-brand-line);
+  border-radius: 8px;
+}
+
+.worksheet-panel h3 {
+  margin: 8px 0 0;
+}
+
+.checkbox-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.checkbox-grid label {
+  display: grid;
+  grid-template-columns: 22px minmax(0, 1fr);
+  gap: 8px;
+  align-items: start;
+  padding: 12px;
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  line-height: 1.65;
+}
+
+.checkbox-grid input {
+  width: 17px;
+  height: 17px;
+  margin-top: 4px;
+  accent-color: var(--green);
+}
+
+.write-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 18px 0 30px;
+}
+
+.write-box {
+  min-height: 148px;
+  padding: 18px;
+  background:
+    linear-gradient(transparent 0 70%, rgba(31, 111, 91, 0.08) 70% 72%, transparent 72%),
+    var(--white);
+  background-size: 100% 42px;
+}
+
+.planner-days {
+  display: grid;
+  gap: 10px;
+  margin: 16px 0 30px;
+}
+
+.planner-days article {
+  display: grid;
+  grid-template-columns: 88px minmax(0, 1fr);
+  gap: 14px;
+  align-items: start;
+  padding: 14px 16px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.planner-days span {
+  color: var(--green-dark);
+  font-weight: 900;
+}
+
+.planner-days p {
+  margin: 0;
+}
+
+.copy-block {
+  position: relative;
+  margin: 16px 0 30px;
+}
+
+.copy-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1;
+  min-height: 34px;
+  padding: 6px 10px;
+  color: var(--white);
+  background: var(--ink);
+  border: 0;
+  border-radius: 8px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.copy-button:focus-visible {
+  outline: 3px solid rgba(229, 100, 47, 0.62);
+  outline-offset: 3px;
+}
+
+.resource-footer-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 30px;
+  padding-top: 22px;
+  border-top: 1px solid var(--line);
+}
+
+.support-tool-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 18px;
+  align-items: center;
+  margin-top: 18px;
+  padding: 22px;
+}
+
+.support-tool-card h3 {
+  margin: 6px 0 8px;
+}
+
+.support-tool-card p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.tool-chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.tool-chip-list span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 5px 10px;
+  color: var(--green-dark);
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 0.84rem;
+  font-weight: 900;
+}
+
 .source-links {
   display: flex;
   flex-wrap: wrap;
@@ -1141,7 +1342,7 @@ img {
   color: var(--coral);
   font-size: 0.74rem;
   font-weight: 900;
-  content: "FEATURED";
+  content: "最初に読む";
 }
 
 .resource-meta {
@@ -1532,11 +1733,15 @@ img {
   .path-list,
   .support-list,
   .timeline-list,
-  .promise-grid {
+  .promise-grid,
+  .resource-summary,
+  .outcome-grid,
+  .write-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .download-item {
+  .download-item,
+  .support-tool-card {
     grid-template-columns: 1fr;
   }
 }
@@ -1573,7 +1778,15 @@ img {
   .feature-row,
   .notice,
   .card,
-  .editor-note {
+  .editor-note,
+  .resource-summary,
+  .outcome-grid,
+  .outcome-card,
+  .worksheet-panel,
+  .write-grid,
+  .write-box,
+  .planner-days,
+  .support-tool-card {
     width: 100%;
     max-width: 354px;
     overflow-wrap: anywhere;
@@ -1633,6 +1846,31 @@ img {
   .resource-article h2 {
     font-size: 1.42rem;
     line-height: 1.32;
+  }
+
+  .resource-summary,
+  .outcome-grid,
+  .write-grid,
+  .checkbox-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .resource-summary article,
+  .outcome-card,
+  .worksheet-panel,
+  .write-box {
+    padding: 16px;
+  }
+
+  .planner-days article {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .copy-button {
+    position: static;
+    width: 100%;
+    margin-bottom: 8px;
   }
 
   .page-title p,
@@ -1858,6 +2096,7 @@ img {
   position: relative;
   width: min(430px, 100%);
   padding: clamp(18px, 3vw, 26px);
+  color: var(--ink);
   background:
     linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.72)),
     var(--white);
@@ -1865,6 +2104,19 @@ img {
   border-radius: 10px;
   box-shadow: 0 20px 52px rgba(23, 26, 24, 0.12);
   backdrop-filter: blur(16px);
+  text-decoration: none;
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.gift-preview-card:hover,
+.gift-preview-card:focus-visible {
+  border-color: rgba(229, 100, 47, 0.48);
+  box-shadow: 0 24px 62px rgba(23, 26, 24, 0.16);
+}
+
+.gift-preview-card:focus-visible {
+  outline: 3px solid rgba(229, 100, 47, 0.56);
+  outline-offset: 4px;
 }
 
 .gift-preview-card h2,

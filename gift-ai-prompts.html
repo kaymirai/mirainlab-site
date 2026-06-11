@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AI商品企画＆SEOプロンプトワーク | 未来収入ラボ</title>
-    <meta name="description" content="参考画像をAIに読ませて、Etsy向けの商品案、タイトル、タグへ落とす無料ワークです">
+    <title>商品名・商品説明・13タグGPTsワーク | 未来収入ラボ</title>
+    <meta name="description" content="商品案をEtsy向けの商品名、商品説明、13タグへ落とすための無料GPTsワークです">
     <link rel="stylesheet" href="assets/css/style.css">
   </head>
   <body>
@@ -20,20 +20,63 @@
     <main>
       <section class="page-title">
         <p class="eyebrow">無料資料 02</p>
-        <h1>AI商品企画＆SEOプロンプトワーク</h1>
+        <h1>商品名・商品説明・13タグGPTsワーク</h1>
         <p>
-          実際の作業では、毎回「参考になる画像」「購入者」「使う場面」を読ませて考えます。ここでは、その流れをそのまま使えるワークにしました。
+          商品案を、Etsy向けの商品名、商品説明、13タグに落とすための入力整理シートです。GPTsに丸投げする前に、購入者・用途・避ける表現を先に決めます。
         </p>
       </section>
 
       <article class="section-inner resource-article">
+        <div class="resource-summary">
+          <article>
+            <span>できること</span>
+            <p>商品案を、タイトル案、説明文、13タグ、画像で伝えることへ分解できます。</p>
+          </article>
+          <article>
+            <span>所要時間</span>
+            <p>15分から20分。商品テーマが1つ決まっている状態で使うと速いです。</p>
+          </article>
+          <article>
+            <span>持ち帰れる成果</span>
+            <p>GPTsに渡せる入力メモと、出力後に人が確認するチェック項目が残ります。</p>
+          </article>
+        </div>
+
         <h2>使い方</h2>
-        <p>
-          ここにある文は丸暗記するものではありません。商品テーマや参考画像に合わせて、角括弧の中を書き換えて使います。
-        </p>
+        <p>ここにある文は固定プロンプトとして丸暗記するものではありません。商品テーマや参考画像に合わせて、角括弧の中を書き換えて使います。</p>
+
+        <h2>0. GPTsに渡す前の入力メモ</h2>
+        <div class="write-grid">
+          <article class="write-box">
+            <span>商品案</span>
+            <p>例: 植物好き向けのマグ、先生への卒業ギフトTシャツ。</p>
+          </article>
+          <article class="write-box">
+            <span>購入者</span>
+            <p>誰が買うか。自分用か、ギフト用かも書きます。</p>
+          </article>
+          <article class="write-box">
+            <span>使う場面</span>
+            <p>誕生日、母の日、卒業祝い、職場、趣味時間など。</p>
+          </article>
+          <article class="write-box">
+            <span>参考画像から見た方向性</span>
+            <p>色、雰囲気、構図、文字の大きさ。真似ではなく観察メモにします。</p>
+          </article>
+          <article class="write-box">
+            <span>使いたい検索語</span>
+            <p>teacher gift, plant lover mug など、購入者が探しそうな英語。</p>
+          </article>
+          <article class="write-box">
+            <span>使わない言葉</span>
+            <p>ブランド名、有名人名、キャラクター名、歌詞、映画セリフなど。</p>
+          </article>
+        </div>
 
         <h2>1. 参考画像を観察する</h2>
-        <pre><code>添付した参考画像を観察してください。
+        <div class="copy-block">
+          <button class="copy-button" type="button" data-copy-target="prompt-observe">コピー</button>
+          <pre><code id="prompt-observe">添付した参考画像を観察してください。
 目的は真似ではなく、Etsy向けの商品企画の方向性を考えることです。
 
 次の観点で整理してください。
@@ -43,9 +86,12 @@
 - 購入者が好みそうな理由
 - そのまま使うと危ない表現
 - Tシャツ、マグ、トートに変換するなら避けるべき点</code></pre>
+        </div>
 
         <h2>2. 購入者と用途を絞る</h2>
-        <pre><code>Etsyで販売する受注生産型の商品案を考えます。
+        <div class="copy-block">
+          <button class="copy-button" type="button" data-copy-target="prompt-idea">コピー</button>
+          <pre><code id="prompt-idea">Etsyで販売する受注生産型の商品案を考えます。
 
 商品形: [Tシャツ / マグ / トート / ポスター]
 購入者: [例: 植物好きの女性、先生へのギフトを探す人]
@@ -57,9 +103,12 @@
 2. 商品テーマ案を10個
 3. その中で初心者が作りやすい案を3つ
 4. 商標・著作権リスクが高そうな表現</code></pre>
+        </div>
 
-        <h2>3. 商品案をEtsyの出品情報へ落とす</h2>
-        <pre><code>次の商品案を、Etsy出品用に整理してください。
+        <h2>3. 商品名・説明文・13タグへ落とす</h2>
+        <div class="copy-block">
+          <button class="copy-button" type="button" data-copy-target="prompt-listing">コピー</button>
+          <pre><code id="prompt-listing">次の商品案を、Etsy出品用に整理してください。
 
 商品案: [ここに商品案]
 商品形: [商品形]
@@ -73,8 +122,32 @@
 - 1枚目画像で伝えるべきこと
 - 追加画像で見せるべきこと
 - 日本語での注意点</code></pre>
+        </div>
 
-        <h2>4. 人が最後に確認すること</h2>
+        <h2>4. 危ない表現を削る</h2>
+        <div class="copy-block">
+          <button class="copy-button" type="button" data-copy-target="prompt-risk">コピー</button>
+          <pre><code id="prompt-risk">以下のEtsy出品案を、権利リスクと誇張表現の観点で確認してください。
+
+タイトル:
+[タイトル]
+
+タグ:
+[タグ]
+
+商品説明:
+[商品説明]
+
+確認してください。
+- ブランド名、キャラクター名、有名人名、作品名、歌詞、映画セリフが混ざっていないか
+- 既存商品や参考画像に寄せすぎていないか
+- 売上や効果を保証する表現がないか
+- 購入者に必要な情報が不足していないか
+
+OK / 要修正 / 危険 の3段階で判定し、最初に直す1点だけ教えてください。</code></pre>
+        </div>
+
+        <h2>5. 人が最後に確認すること</h2>
         <div class="check-list-card">
           <p><span class="checkmark">✓</span>AIが出した英語に、商標名や著名キャラクター名が混ざっていない</p>
           <p><span class="checkmark">✓</span>参考画像の構図、文字、イラストをそのまま移していない</p>
@@ -88,9 +161,10 @@
           <p>AIは商品案づくりを速くできますが、権利確認、販売判断、最終表現の責任は人が持ちます。プロンプトは答えではなく、考えるための道具です。</p>
         </div>
 
-        <div class="hero-actions">
+        <div class="resource-footer-actions">
           <a class="button primary" href="gift-weekend-planner.html">次の資料へ</a>
           <a class="button secondary" href="free-gift.html">無料資料に戻る</a>
+          <a class="button secondary" href="mentor.html">伴走を見る</a>
         </div>
       </article>
     </main>
@@ -99,5 +173,6 @@
       <p>未来収入ラボ</p>
       <p>AIと受注生産型の商品販売を活用して、海外販売に挑戦するための実践情報をお届けします</p>
     </footer>
+    <script src="assets/js/resource-copy.js"></script>
   </body>
 </html>
