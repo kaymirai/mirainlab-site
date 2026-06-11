@@ -300,6 +300,20 @@ img {
   overflow-wrap: normal;
 }
 
+.focused-hero {
+  grid-template-columns: minmax(0, 760px);
+  justify-content: start;
+  min-height: 64vh;
+}
+
+.focused-hero .hero-copy {
+  max-width: 760px;
+}
+
+.focused-hero h1 {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+}
+
 .product-lab {
   position: relative;
   padding: 0;
