@@ -1097,6 +1097,32 @@ img {
   margin: 0;
 }
 
+.formula-card {
+  margin: 16px 0 30px;
+  padding: 18px;
+  color: var(--ink);
+  background:
+    linear-gradient(135deg, rgba(255, 243, 226, 0.8), rgba(234, 244, 239, 0.82)),
+    var(--white);
+  border: 1px solid rgba(229, 100, 47, 0.22);
+  border-left: 6px solid var(--coral);
+  border-radius: 8px;
+}
+
+.formula-card span {
+  display: inline-flex;
+  margin-bottom: 8px;
+  color: var(--coral);
+  font-size: 0.8rem;
+  font-weight: 900;
+}
+
+.formula-card p {
+  margin: 0;
+  color: var(--ink);
+  font-weight: 800;
+}
+
 .copy-block {
   position: relative;
   margin: 16px 0 30px;
