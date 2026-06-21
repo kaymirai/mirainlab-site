@@ -1,0 +1,778 @@
+﻿<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Etsyでやることと使うツール一覧 | 未来収入ラボ</title>
+    <meta name="description" content="Etsy、Printify、AIツールを使った商品づくりで必要な作業を、普段使うツール、Codexアプリ、メンターシップに含まれる内容に分けて整理した一覧です。">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+      .tool-map-hero {
+        padding: clamp(48px, 8vw, 94px) 0 clamp(38px, 6vw, 68px);
+        background:
+          linear-gradient(135deg, rgba(234, 244, 239, 0.92), rgba(255, 243, 226, 0.68)),
+          var(--paper);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .tool-map-hero .section-inner {
+        display: grid;
+        grid-template-columns: minmax(0, 0.95fr) minmax(300px, 0.55fr);
+        gap: clamp(26px, 5vw, 56px);
+        align-items: center;
+      }
+
+      .tool-map-hero h1 {
+        max-width: 820px;
+        margin: 0;
+        font-family: "Yu Mincho", "Hiragino Mincho ProN", Georgia, serif;
+        font-size: clamp(2.2rem, 5vw, 4.8rem);
+        line-height: 1.1;
+        letter-spacing: 0;
+      }
+
+      .tool-map-hero .lead {
+        max-width: 760px;
+      }
+
+      .hero-note {
+        display: grid;
+        gap: 12px;
+        padding: 24px;
+        background: rgba(255, 255, 255, 0.86);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+      }
+
+      .hero-note p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .hero-note strong {
+        color: var(--ink);
+      }
+
+      .tool-map-wrap {
+        width: calc(100% - 36px);
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: clamp(42px, 7vw, 78px) 0;
+      }
+
+      .tool-map-intro {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(280px, 360px);
+        gap: 24px;
+        align-items: end;
+        margin-bottom: 24px;
+      }
+
+      .tool-map-intro h2,
+      .tool-map-intro p {
+        margin: 0;
+      }
+
+      .tool-map-intro p {
+        color: var(--muted);
+      }
+
+      .legend-panel {
+        display: grid;
+        gap: 8px;
+        padding: 18px;
+        background: var(--white);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+      }
+
+      .legend-row {
+        display: grid;
+        grid-template-columns: 92px minmax(0, 1fr);
+        gap: 10px;
+        align-items: center;
+        color: var(--muted);
+        font-size: 0.94rem;
+      }
+
+      .legend-label {
+        display: inline-flex;
+        justify-content: center;
+        padding: 4px 8px;
+        color: var(--ink);
+        background: var(--paper);
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        font-weight: 900;
+      }
+
+      .tool-table-card {
+        overflow: hidden;
+        background: var(--white);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+      }
+
+      .tool-table {
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: fixed;
+      }
+
+      .tool-table col.task {
+        width: 24%;
+      }
+
+      .tool-table col.site {
+        width: 18%;
+      }
+
+      .tool-table col.tools {
+        width: 22%;
+      }
+
+      .tool-table col.codex {
+        width: 16%;
+      }
+
+      .tool-table col.mentor {
+        width: 20%;
+      }
+
+      .tool-table th,
+      .tool-table td {
+        border-bottom: 1px solid var(--line);
+        border-right: 1px solid var(--line);
+        vertical-align: top;
+      }
+
+      .tool-table th:last-child,
+      .tool-table td:last-child {
+        border-right: 0;
+      }
+
+      .tool-table thead th {
+        padding: 16px;
+        background: #f9fbfc;
+        font-size: 1rem;
+        line-height: 1.35;
+        text-align: left;
+      }
+
+      .tool-table thead th.codex-head {
+        background: #ecf3ff;
+      }
+
+      .tool-table thead th.mentor-head {
+        color: var(--white);
+        background: var(--ink);
+      }
+
+      .tool-table thead small {
+        display: block;
+        margin-top: 4px;
+        color: var(--muted);
+        font-weight: 700;
+      }
+
+      .tool-table thead th.mentor-head small {
+        color: rgba(255, 255, 255, 0.72);
+      }
+
+      .section-row th,
+      .section-row td {
+        padding: 12px 16px;
+        color: var(--green-dark);
+        background: var(--soft-brand);
+        font-size: 1.04rem;
+        font-weight: 900;
+      }
+
+      .tool-table tbody th,
+      .tool-table tbody td {
+        padding: 15px 16px;
+        font-size: 0.96rem;
+        line-height: 1.62;
+      }
+
+      .task-title {
+        display: grid;
+        gap: 4px;
+      }
+
+      .task-title strong {
+        font-size: 1.02rem;
+        line-height: 1.4;
+      }
+
+      .task-title span {
+        color: var(--muted);
+        font-size: 0.88rem;
+      }
+
+      .tool-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+
+      .tool-chip {
+        display: inline-flex;
+        align-items: center;
+        min-height: 28px;
+        padding: 3px 9px;
+        color: var(--green-dark);
+        background: var(--soft-brand);
+        border: 1px solid var(--soft-brand-line);
+        border-radius: 999px;
+        font-size: 0.86rem;
+        font-weight: 900;
+      }
+
+      .tool-chip.blue {
+        color: #174a8b;
+        background: #ecf3ff;
+        border-color: rgba(49, 90, 198, 0.18);
+      }
+
+      .tool-chip.gold {
+        color: #775115;
+        background: #fff5dd;
+        border-color: rgba(187, 133, 39, 0.24);
+      }
+
+      .empty-cell {
+        background: #fafafa;
+      }
+
+      .check-cell,
+      .mentor-cell {
+        text-align: center;
+      }
+
+      .rating-symbol {
+        display: inline-grid;
+        place-items: center;
+        width: 38px;
+        height: 38px;
+        border-radius: 999px;
+        font-size: 1.24rem;
+        font-weight: 900;
+        line-height: 1;
+      }
+
+      .rating-triangle {
+        color: #775115;
+        background: #fff5dd;
+      }
+
+      .rating-circle {
+        color: var(--white);
+        background: var(--aqua);
+      }
+
+      .rating-double {
+        color: var(--white);
+        background: var(--green);
+      }
+
+      .cell-note {
+        display: block;
+        margin-top: 8px;
+        color: var(--muted);
+        font-size: 0.84rem;
+        line-height: 1.55;
+        text-align: left;
+      }
+
+      .mentor-cell {
+        background: #17211d;
+      }
+
+      .mentor-cell .cell-note {
+        color: rgba(255, 255, 255, 0.78);
+      }
+
+      .tool-map-cta {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 24px;
+        align-items: center;
+        margin-top: 32px;
+        padding: 28px;
+        color: var(--white);
+        background: var(--ink);
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+      }
+
+      .tool-map-cta h2,
+      .tool-map-cta p {
+        margin: 0;
+      }
+
+      .tool-map-cta p {
+        color: rgba(255, 255, 255, 0.72);
+      }
+
+      .tool-map-cta .button.primary {
+        color: var(--ink);
+        background: var(--white);
+        border-color: var(--white);
+      }
+
+      @media (max-width: 900px) {
+        .tool-map-hero .section-inner,
+        .tool-map-intro,
+        .tool-map-cta {
+          grid-template-columns: 1fr;
+        }
+
+        .tool-map-cta .button {
+          width: 100%;
+        }
+      }
+
+      @media (max-width: 760px) {
+        .tool-map-wrap {
+          width: 100%;
+          padding-right: 18px;
+          padding-left: 18px;
+        }
+
+        .tool-table-card {
+          overflow: visible;
+          border: 0;
+          box-shadow: none;
+          background: transparent;
+        }
+
+        .tool-table,
+        .tool-table thead,
+        .tool-table tbody,
+        .tool-table tr,
+        .tool-table th,
+        .tool-table td {
+          display: block;
+          width: 100%;
+        }
+
+        .tool-table colgroup,
+        .tool-table thead {
+          display: none;
+        }
+
+        .section-row th {
+          margin: 20px 0 10px;
+          border: 1px solid var(--soft-brand-line);
+          border-radius: 8px;
+        }
+
+        .section-row td {
+          display: none;
+        }
+
+        .tool-table tbody tr:not(.section-row) {
+          margin-bottom: 14px;
+          overflow: hidden;
+          background: var(--white);
+          border: 1px solid var(--line);
+          border-radius: 8px;
+          box-shadow: 0 12px 34px rgba(23, 26, 24, 0.06);
+        }
+
+        .tool-table tbody th,
+        .tool-table tbody td {
+          border-right: 0;
+        }
+
+        .tool-table tbody td::before {
+          display: block;
+          margin-bottom: 6px;
+          color: var(--muted);
+          font-size: 0.78rem;
+          font-weight: 900;
+          text-transform: uppercase;
+        }
+
+        .tool-table tbody td:nth-child(2)::before {
+          content: "使うサイト";
+        }
+
+        .tool-table tbody td:nth-child(3)::before {
+          content: "普段使うツール";
+        }
+
+        .tool-table tbody td:nth-child(4)::before {
+          content: "Codexアプリ";
+        }
+
+        .tool-table tbody td:nth-child(5)::before {
+          content: "メンターシップ";
+        }
+
+        .mentor-cell {
+          background: #17211d;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html">未来収入ラボ</a>
+      <nav class="nav" aria-label="主要ページ">
+        <a href="index.html">TOP</a>
+        <a href="free-gift.html">無料資料</a>
+        <a href="diagnosis.html">診断</a>
+        <a href="mentor.html" aria-current="page">3か月伴走</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="tool-map-hero">
+        <div class="section-inner">
+          <div>
+            <p class="eyebrow">Tool Map</p>
+            <h1>Etsyでやることを、使うツールごとに整理する</h1>
+            <p class="lead">
+              Etsy販売は、Etsyだけで完結しません。Payoneer、Printify、Canva、AIツール、メッセージ対応まで、作業ごとに使う場所が変わります。この一覧は、初心者が「何を、どこで、どの部分を支援ツールで軽くできるか」を見るための表です。
+            </p>
+            <div class="hero-actions">
+              <a class="button primary" href="apply.html">3か月伴走に相談する</a>
+              <a class="button secondary" href="#tool-map">一覧を見る</a>
+            </div>
+          </div>
+          <aside class="hero-note">
+            <p><strong>Codexアプリ</strong>は月$100前提。勝手に作業を進めるものではなく、あなたが指示した内容の下書き、整理、画像まわり、SEO文案、改善案づくりを手伝います。</p>
+            <p><strong>メンターシップ</strong>には未来デザインアプリと伴走が含まれます。ツールだけでは止まりやすい判断を一緒に進めます。</p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="tool-map-wrap" id="tool-map">
+        <div class="tool-map-intro">
+          <div>
+            <p class="eyebrow">Checklist</p>
+            <h2>やること・使うサイト・普段使うツール・支援できる部分</h2>
+            <p>記号は、△が一部補助、◯が下書き・整理をしっかり支援、◎が専用アプリの強みです。空欄は対象外または本人作業です。登録、本人確認、外部サービスの実操作は本人作業です。</p>
+          </div>
+          <div class="legend-panel">
+            <div class="legend-row"><span class="legend-label">△</span><span>一部補助。考え方や下書きまで</span></div>
+            <div class="legend-row"><span class="legend-label">◯</span><span>下書き・整理をしっかり支援</span></div>
+            <div class="legend-row"><span class="legend-label">◎</span><span>専用アプリの強みとして含む</span></div>
+            <div class="legend-row"><span class="legend-label">空欄</span><span>対象外、または本人が行う作業</span></div>
+          </div>
+        </div>
+
+        <div class="tool-table-card">
+          <table class="tool-table" aria-label="Etsyでやることと使うツール一覧">
+            <colgroup>
+              <col class="task">
+              <col class="site">
+              <col class="tools">
+              <col class="codex">
+              <col class="mentor">
+            </colgroup>
+            <thead>
+              <tr>
+                <th>やること</th>
+                <th>使うサイト</th>
+                <th>普段使うツール</th>
+                <th class="codex-head">Codexアプリ<br><small>月$100。指示した作業の下書き・整理を支援</small></th>
+                <th class="mentor-head">メンターシップ<br><small>未来デザインアプリ＋伴走に含まれる内容（売れたあとは伴走中心）</small></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="section-row"><th>0. 始める前の設計</th><td></td><td></td><td></td><td></td></tr>
+              <tr>
+                <th><span class="task-title"><strong>販売テーマを決める</strong><span>誰に、どんな場面の商品を出すか</span></span></th>
+                <td><div class="tool-list"><span class="tool-chip">Etsy検索</span><span class="tool-chip">Google Trends</span></div></td>
+                <td><div class="tool-list"></div></td>
+                <td class="check-cell empty-cell"></td>
+                <td class="mentor-cell"><span class="rating-symbol rating-circle">◯</span><span class="cell-note">狙うテーマを一緒に絞る</span></td>
+              </tr>
+              <tr>
+                <th><span class="task-title"><strong>必要費用を把握する</strong><span>ツール代、素材代、手数料、広告費</span></span></th>
+                <td><div class="tool-list"><span class="tool-chip">Etsy手数料</span><span class="tool-chip">Printify原価</span></div></td>
+                <td><div class="tool-list"></div></td>
+                <td class="check-cell empty-cell"></td>
+                <td class="mentor-cell"><span class="rating-symbol rating-circle">◯</span><span class="cell-note">無理のない開始ラインを確認</span></td>
+              </tr>
+
+              <tr class="section-row"><th>1. 初回だけやること</th><td></td><td></td><td></td><td></td></tr>
+              <tr>
+                <th><span class="task-title"><strong>Etsyアカウント開設</strong><span>本人確認、支払い方法、ショップ作成</span></span></th>
+                <td><div class="tool-list"><span class="tool-chip">Etsy</span></div></td>
+                <td><div class="tool-list"><span class="tool-chip">クレジットカード</span><span class="tool-chip">本人確認書類</span></div></td>
+                <td class="check-cell empty-cell"></td>
+                <td class="mentor-cell"><span class="rating-symbol rating-circle">◯</span><span class="cell-note">詰まりやすい順番を確認</span></td>
+              </tr>
+              <tr>
+                <th><span class="task-title"><strong>Payoneer登録・銀行連携</strong><span>売上の受取口座を設定する</span></span></th>
+                <td><div class="tool-list"><span class="tool-chip">Payoneer</span></div></td>
+                <td><div class="tool-list"><span class="tool-chip">銀行口座</span><span class="tool-chip">本人確認</span></div></td>
+                <td class="check-cell empty-cell"></td>
+                <td class="mentor-cell"><span class="rating-symbol rating-circle">◯</span><span class="cell-note">必要項目の抜けを確認</span></td>
+              </tr>
+              <tr>
+                <th><span class="task-title"><strong>Printifyアカウント作成</strong><span>印刷・発送のためのアカウント</span></span></th>
+                <td><div class="tool-list"><span class="tool-chip">Printify</span></div></td>
+                <td><div class="tool-list"><span class="tool-chip">メール</span></div></td>
+                <td class="check-cell empty-cell"></td>
+                <td class="mentor-cell"><span class="rating-symbol rating-circle">◯</span><span class="cell-note">最初の設定を確認</span></td>
+              </tr>
+              <tr>
+                <th><span class="task-title"><strong>EtsyとPrintifyを連携</strong><span>商品をPrintifyからEtsyへ送れる状態にする</span></span></th>
+                <td><div class="tool-list"><span class="tool-chip">Printify</span><span class="tool-chip">Etsy</span></div></td>
+                <td><div class="tool-list"></div></td>
+                <td class="check-cell empty-cell"></td>
+                <td class="mentor-cell"><span class="rating-symbol rating-circle">◯</span><span class="cell-note">連携後の確認ポイントを一緒に見る</span></td>
+              </tr>
+              <tr>
+                <th><span class="task-title"><strong>ショップ名・発送表示名</strong><span>Etsyの店名とPrintify側の発送表示名</span></span></th>
+                <td><div class="tool-list"><span class="tool-chip">Etsy</span><span class="tool-chip">Printify</span></div></td>
+                <td><div class="tool-list"><span class="tool-chip blue">ChatGPT</span></div></td>
+                <td class="check-cell empty-cell"></td>
+                <td class="mentor-cell"><span class="rating-symbol rating-circle">◯</span><span class="cell-note">表示の整合性を確認</span></td>
+              </tr>
+              <tr>
+                <th><span class="task-title"><strong>ショップ説明・About作成</strong><span>プロフィール、ショップ説明、ストーリー</span></span></th>
+                <td><div class="tool-list"><span class="tool-chip">Etsy</span></div></td>
+                <td><div class="tool-list"><span class="tool-chip blue">ChatGPT</span></div></td>
+                <td class="check-cell"><span class="rating-symbol rating-circle">◯</span><span class="cell-note">文章作成・言い換え・英訳</span></td>
+                <td class="mentor-cell"><span class="rating-symbol rating-circle">◯</span><span class="cell-note">信用を落とさない表現に整える</span></td>
+              </tr>
+              <tr>
+                <th><span class="task-title"><strong>ショップ画像・バナー準備</strong><span>ロゴ、バナー、プロフィール画像</span></span></th>
+                <td><div class="tool-list"></div></td>
+                <td><div class="tool-list"><span class="tool-chip">Canva</span><span class="tool-chip">Kittl</span><span class="tool-chip blue">ChatGPT</span><span class="tool-chip blue">画像AI</span></div></td>
+                <td class="check-cell"><span class="rating-symbol rating-circle">◯</span><span class="cell-note">ラフ案・素材整理・構成案</span></td>
+                <td class="mentor-cell"><span class="rating-symbol rating-circle">◯</span><span class="cell-note">未来デザインアプリで作成支援</span></td>
+              </tr>
+              <tr>
+                <th><span class="task-title"><strong>返品・交換・発送ポリシー</strong><span>お客様対応の前提を作る</span></span></th>
+                <td><div class="tool-list"><span class="tool-chip">Etsy</span></div></td>
+                <td><div class="tool-list"><span class="tool-chip blue">ChatGPT</span></div></td>
+                <td class="check-cell"><span class="rating-symbol rating-circle">◯</span><span class="cell-note">たたき台・英訳・FAQ作成</span></td>
+                <td class="mentor-cell"><span class="rating-symbol rating-circle">◯</span><span class="cell-note">言い切りすぎを避ける</span></td>
+              </tr>
+
+              <tr>
+                <th><span class="task-title"><strong>価格・送料・利益の型作成</strong><span>割引、手数料、広告費まで含める</span></span></th>
+                <td><div class="tool-list"><span class="tool-chip">Printify</span><span class="tool-chip">Etsy</span></div></td>
+                <td><div class="tool-list"></div></td>
+                <td class="check-cell empty-cell"></td>
+                <td class="mentor-cell"><span class="rating-symbol rating-circle">◯</span><span class="cell-note">最初の価格ルールを一緒に決める</span></td>
+              </tr>
+
+              <tr>
+                <th><span class="task-title"><strong>AI生成・制作パートナー表示</strong><span>AI利用と外部制作先の表示ルール</span></span></th>
+                <td><div class="tool-list"><span class="tool-chip">Etsy</span><span class="tool-chip">Printify</span></div></td>
+                <td><div class="tool-list"></div></td>
+                <td class="check-cell empty-cell"></td>
+                <td class="mentor-cell"><span class="rating-symbol rating-circle">◯</span><span class="cell-note">最初に表示ルールを確認</span></td>
+              </tr>
+
+              <tr class="section-row"><th>2. 商品ごとにやること</th><td></td><td></td><td></td><td></td></tr>
+              <tr>
+                <th><span class="task-title"><strong>売れ筋リサーチ</strong><span>売れているテーマ、価格帯、画像の見せ方</span></span></th>
+                <td><div class="tool-list"><span class="tool-chip">Etsy</span></div></td>
+                <td><div class="tool-list"><span class="tool-chip">EverBee</span><span class="tool-chip">eRank</span></div></td>
+                <td class="check-cell empty-cell"></td>
+                <td class="mentor-cell"><span class="rating-symbol rating-circle">◯</span><span class="cell-note">狙う商品を一緒に決める</span></td>
+              </tr>
+              <tr>
+                <th><span class="task-title"><strong>商標・著作権・危険ワード確認</strong><span>ブランド名、キャラクター、作品名を避ける</span></span></th>
+                <td><div class="tool-list"><span class="tool-chip">J-PlatPat</span><span class="tool-chip">Google検索</span><span class="tool-chip">Etsy検索</span></div></td>
+                <td><div class="tool-list"><span class="tool-chip">USPTO</span></div></td>
+                <td class="check-cell empty-cell"></td>
+                <td class="mentor-cell"><span class="rating-symbol rating-circle">◯</span><span class="cell-note">危ない案を避ける判断</span></td>
+              </tr>
+              <tr>
+                <th><span class="task-title"><strong>商品コンセプト作成</strong><span>誰向け、何の商品かを短く決める</span></span></th>
+                <td><div class="tool-list"></div></td>
+                <td><div class="tool-list"><span class="tool-chip blue">ChatGPT</span><span class="tool-chip">Gemini</span></div></td>
+                <td class="check-cell"><span class="rating-symbol rating-triangle">△</span><span class="cell-note">コンセプト案・ペルソナ案</span></td>
+                <td class="mentor-cell"><span class="rating-symbol rating-double">◎</span><span class="cell-note">広すぎるテーマを絞る</span></td>
+              </tr>
+              <tr>
+                <th><span class="task-title"><strong>AIプロンプト作成</strong><span>デザイン案を出すための指示文</span></span></th>
+                <td><div class="tool-list"></div></td>
+                <td><div class="tool-list"><span class="tool-chip blue">ChatGPT</span><span class="tool-chip">Gemini</span></div></td>
+                <td class="check-cell"><span class="rating-symbol rating-triangle">△</span><span class="cell-note">複数案の下書き</span></td>
+                <td class="mentor-cell"><span class="rating-symbol rating-double">◎</span><span class="cell-note">未来デザインアプリで作成支援</span></td>
+              </tr>
+              <tr>
+                <th><span class="task-title"><strong>デザイン生成</strong><span>商品に使う画像・柄・文字案</span></span></th>
+                <td><div class="tool-list"></div></td>
+                <td><div class="tool-list"><span class="tool-chip blue">ChatGPT画像</span><span class="tool-chip">Gemini</span></div></td>
+                <td class="check-cell"><span class="rating-symbol rating-circle">◯</span><span class="cell-note">画像案生成・案の整理</span></td>
+                <td class="mentor-cell"><span class="rating-symbol rating-double">◎</span><span class="cell-note">未来デザインアプリで効率化</span></td>
+              </tr>
+              <tr>
+                <th><span class="task-title"><strong>文字入れ・編集</strong><span>商品として見える形に整える</span></span></th>
+                <td><div class="tool-list"></div></td>
+                <td><div class="tool-list"><span class="tool-chip">Canva</span><span class="tool-chip">Kittl</span><span class="tool-chip">Photopea</span></div></td>
+                <td class="check-cell empty-cell"></td>
+                <td class="mentor-cell"><span class="rating-symbol rating-circle">◯</span><span class="cell-note">商品向けに整える</span></td>
+              </tr>
+              <tr>
+                <th><span class="task-title"><strong>背景透過</strong><span>印刷用に背景を抜く</span></span></th>
+                <td><div class="tool-list"><span class="tool-chip">remove.bg</span></div></td>
+                <td><div class="tool-list"><span class="tool-chip">Canva</span><span class="tool-chip">Photopea</span></div></td>
+                <td class="check-cell"><span class="rating-symbol rating-circle">◯</span><span class="cell-note">画像処理の手順化・補助</span></td>
+                <td class="mentor-cell"><span class="rating-symbol rating-double">◎</span><span class="cell-note">未来デザインアプリで対応</span></td>
+              </tr>
+              <tr>
+                <th><span class="task-title"><strong>アップスケール</strong><span>印刷に耐える解像度へ上げる</span></span></th>
+                <td><div class="tool-list"></div></td>
+                <td><div class="tool-list"><span class="tool-chip">Upscayl</span><span class="tool-chip">Canva</span></div></td>
+                <td class="check-cell"><span class="rating-symbol rating-circle">◯</span><span class="cell-note">ローカル処理の手順化・補助</span></td>
+                <td class="mentor-cell"><span class="rating-symbol rating-double">◎</span><span class="cell-note">未来デザインアプリで連携</span></td>
+              </tr>
+              <tr>
+                <th><span class="task-title"><strong>モックアップ画像作成</strong><span>1枚目画像、生活シーン、バリエーション</span></span></th>
+                <td><div class="tool-list"><span class="tool-chip">Printify</span></div></td>
+                <td><div class="tool-list"><span class="tool-chip">Canva</span><span class="tool-chip">購入素材</span></div></td>
+                <td class="check-cell empty-cell"></td>
+                <td class="mentor-cell"><span class="rating-symbol rating-double">◎</span><span class="cell-note">未来デザインアプリで作成支援</span></td>
+              </tr>
+              <tr>
+                <th><span class="task-title"><strong>商品バリエーション作成</strong><span>色、サイズ、別商品への展開</span></span></th>
+                <td><div class="tool-list"><span class="tool-chip">Printify</span></div></td>
+                <td><div class="tool-list"><span class="tool-chip">Canva</span></div></td>
+                <td class="check-cell"><span class="rating-symbol rating-circle">◯</span><span class="cell-note">展開案・命名</span></td>
+                <td class="mentor-cell"><span class="rating-symbol rating-circle">◯</span><span class="cell-note">商品セットとして管理</span></td>
+              </tr>
+
+              <tr class="section-row"><th>3. 出品前にやること</th><td></td><td></td><td></td><td></td></tr>
+              <tr>
+                <th><span class="task-title"><strong>Printifyへ商品登録</strong><span>商品選択、配置、色、サイズ、原価</span></span></th>
+                <td><div class="tool-list"><span class="tool-chip">Printify</span></div></td>
+                <td><div class="tool-list"></div></td>
+                <td class="check-cell empty-cell"></td>
+                <td class="mentor-cell"><span class="rating-symbol rating-double">◎</span><span class="cell-note">データ連携あり。登録前後の確認ポイントを見る</span></td>
+              </tr>
+              <tr>
+                <th><span class="task-title"><strong>Etsyへのモックアップ画像アップロード</strong><span>出品画像をEtsyの商品ページへ入れる</span></span></th>
+                <td><div class="tool-list"><span class="tool-chip">Etsy</span></div></td>
+                <td><div class="tool-list"><span class="tool-chip">Printify</span></div></td>
+                <td class="check-cell empty-cell"></td>
+                <td class="mentor-cell"><span class="rating-symbol rating-circle">◯</span><span class="cell-note">アップロード前後の見え方を確認</span></td>
+              </tr>
+              <tr>
+                <th><span class="task-title"><strong>商品タイトル作成</strong><span>検索される言葉と読みやすさ</span></span></th>
+                <td><div class="tool-list"><span class="tool-chip">Etsy</span><span class="tool-chip">eRank</span></div></td>
+                <td><div class="tool-list"><span class="tool-chip blue">ChatGPT</span></div></td>
+                <td class="check-cell"><span class="rating-symbol rating-circle">◯</span><span class="cell-note">タイトル案・一括下書き</span></td>
+                <td class="mentor-cell"><span class="rating-symbol rating-double">◎</span><span class="cell-note">専用SEOとして確認</span></td>
+              </tr>
+              <tr>
+                <th><span class="task-title"><strong>説明文作成</strong><span>商品説明、サイズ、注意事項</span></span></th>
+                <td><div class="tool-list"><span class="tool-chip">Etsy</span></div></td>
+                <td><div class="tool-list"><span class="tool-chip blue">ChatGPT</span></div></td>
+                <td class="check-cell"><span class="rating-symbol rating-circle">◯</span><span class="cell-note">説明文・英訳・テンプレ化</span></td>
+                <td class="mentor-cell"><span class="rating-symbol rating-double">◎</span><span class="cell-note">伝わり方を確認</span></td>
+              </tr>
+              <tr>
+                <th><span class="task-title"><strong>タグ13個・属性設定</strong><span>Etsy検索に必要な入力</span></span></th>
+                <td><div class="tool-list"><span class="tool-chip">Etsy</span><span class="tool-chip">eRank</span></div></td>
+                <td><div class="tool-list"><span class="tool-chip blue">ChatGPT</span></div></td>
+                <td class="check-cell"><span class="rating-symbol rating-circle">◯</span><span class="cell-note">タグ候補・表記ゆれ整理</span></td>
+                <td class="mentor-cell"><span class="rating-symbol rating-double">◎</span><span class="cell-note">専用SEOとして確認</span></td>
+              </tr>
+              <tr>
+                <th><span class="task-title"><strong>サムネイル確認</strong><span>スマホ、検索結果、一覧で見えるか</span></span></th>
+                <td><div class="tool-list"><span class="tool-chip">Etsy</span><span class="tool-chip">スマホ表示</span></div></td>
+                <td><div class="tool-list"></div></td>
+                <td class="check-cell empty-cell"></td>
+                <td class="mentor-cell"><span class="rating-symbol rating-circle">◯</span><span class="cell-note">見落としを一緒に確認</span></td>
+              </tr>
+
+              <tr class="section-row"><th>4. 売れたあとにやること</th><td></td><td></td><td></td><td></td></tr>
+              <tr>
+                <th><span class="task-title"><strong>注文状況確認</strong><span>Printify側で処理状況を見る</span></span></th>
+                <td><div class="tool-list"><span class="tool-chip">Etsy Orders</span><span class="tool-chip">Printify Orders</span></div></td>
+                <td><div class="tool-list"></div></td>
+                <td class="check-cell empty-cell"></td>
+                <td class="mentor-cell"><span class="rating-symbol rating-circle">◯</span><span class="cell-note">伴走で確認フローを作る</span></td>
+              </tr>
+              <tr>
+                <th><span class="task-title"><strong>お客様メッセージ対応</strong><span>質問、住所不備、遅延、返品相談</span></span></th>
+                <td><div class="tool-list"><span class="tool-chip">Etsy Messages</span></div></td>
+                <td><div class="tool-list"><span class="tool-chip blue">ChatGPT</span></div></td>
+                <td class="check-cell"><span class="rating-symbol rating-circle">◯</span><span class="cell-note">返信文案・英訳・トーン調整</span></td>
+                <td class="mentor-cell"><span class="rating-symbol rating-circle">◯</span><span class="cell-note">伴走で対応方針を相談</span></td>
+              </tr>
+              <tr>
+                <th><span class="task-title"><strong>レビュー確認</strong><span>改善点や次の商品案を拾う</span></span></th>
+                <td><div class="tool-list"><span class="tool-chip">Etsy Reviews</span></div></td>
+                <td><div class="tool-list"></div></td>
+                <td class="check-cell empty-cell"></td>
+                <td class="mentor-cell"><span class="rating-symbol rating-circle">◯</span><span class="cell-note">伴走で改善点を整理</span></td>
+              </tr>
+              <tr>
+                <th><span class="task-title"><strong>アクセス・クリック確認</strong><span>表示回数、クリック、購入のどこで止まるか</span></span></th>
+                <td><div class="tool-list"><span class="tool-chip">Etsy Stats</span></div></td>
+                <td><div class="tool-list"></div></td>
+                <td class="check-cell empty-cell"></td>
+                <td class="mentor-cell"><span class="rating-symbol rating-circle">◯</span><span class="cell-note">伴走で次の一手を決める</span></td>
+              </tr>
+              <tr>
+                <th><span class="task-title"><strong>商品ページ改善</strong><span>画像、タイトル、価格、タグを見直す</span></span></th>
+                <td><div class="tool-list"><span class="tool-chip">Etsy</span></div></td>
+                <td><div class="tool-list"><span class="tool-chip">Canva</span><span class="tool-chip blue">ChatGPT</span></div></td>
+                <td class="check-cell"><span class="rating-symbol rating-circle">◯</span><span class="cell-note">改善案・差し替え文案</span></td>
+                <td class="mentor-cell"><span class="rating-symbol rating-circle">◯</span><span class="cell-note">伴走で優先順位を決める</span></td>
+              </tr>
+              <tr>
+                <th><span class="task-title"><strong>次の商品案へ展開</strong><span>売れ筋、季節、イベントに広げる</span></span></th>
+                <td><div class="tool-list"><span class="tool-chip">Etsy</span><span class="tool-chip">Trends</span></div></td>
+                <td><div class="tool-list"><span class="tool-chip blue">ChatGPT</span></div></td>
+                <td class="check-cell"><span class="rating-symbol rating-circle">◯</span><span class="cell-note">次の商品案・シリーズ案</span></td>
+                <td class="mentor-cell"><span class="rating-symbol rating-circle">◯</span><span class="cell-note">伴走で次の商品候補を整理</span></td>
+              </tr>
+              <tr>
+                <th><span class="task-title"><strong>売上・費用の記録</strong><span>利益、広告費、素材費、ツール代</span></span></th>
+                <td><div class="tool-list"><span class="tool-chip">Etsy</span><span class="tool-chip">Printify</span></div></td>
+                <td><div class="tool-list"></div></td>
+                <td class="check-cell empty-cell"></td>
+                <td class="mentor-cell"><span class="rating-symbol rating-circle">◯</span><span class="cell-note">伴走で続ける/止める判断を整理</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="tool-map-cta">
+          <div>
+            <h2>ツールだけでは止まりやすいところを、伴走で前に進める</h2>
+            <p>初期設定、商品選び、出品前確認、改善判断は、単に作業を知っているだけでは止まりやすい部分です。3か月伴走では、未来デザインアプリと一緒に、実際の作業順と判断を整えます。</p>
+          </div>
+          <a class="button primary" href="apply.html">3か月伴走に相談する</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>未来収入ラボ</p>
+      <p>AIと受注生産型の商品販売を活用して、海外販売に挑戦するための実践情報をお届けします</p>
+      <p><a href="privacy.html">プライバシーポリシー</a> / <a href="legal.html">特定商取引法に基づく表記</a></p>
+    </footer>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

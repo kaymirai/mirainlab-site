@@ -1,0 +1,534 @@
+﻿<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Etsy商品づくり実行ロードマップ | 未来収入ラボ</title>
+    <meta name="description" content="EtsyとPrintifyを使ったAI商品づくりで、初期設定から出品後の改善までを迷わず進めるための実行ロードマップです。3か月伴走への案内も掲載しています。">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+      .roadmap-hero {
+        position: relative;
+        min-height: calc(100vh - 76px);
+        display: grid;
+        align-items: center;
+        overflow: hidden;
+        background:
+          linear-gradient(90deg, rgba(247, 248, 244, 0.96), rgba(247, 248, 244, 0.74) 45%, rgba(247, 248, 244, 0.28)),
+          url("assets/images/roadmap-visual.svg") right center / min(52vw, 680px) auto no-repeat,
+          var(--paper);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .roadmap-hero .section-inner {
+        padding-top: clamp(48px, 8vw, 96px);
+        padding-bottom: clamp(54px, 8vw, 104px);
+      }
+
+      .roadmap-hero-copy {
+        max-width: 720px;
+      }
+
+      .roadmap-hero h1 {
+        margin: 0;
+        font-family: "Yu Mincho", "Hiragino Mincho ProN", Georgia, serif;
+        font-size: clamp(2.35rem, 5.6vw, 5.3rem);
+        line-height: 1.06;
+        letter-spacing: 0;
+      }
+
+      .roadmap-hero .lead {
+        max-width: 680px;
+      }
+
+      .roadmap-strip {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 10px;
+        margin-top: 28px;
+      }
+
+      .roadmap-strip span {
+        padding: 12px 14px;
+        color: var(--green-dark);
+        background: rgba(255, 255, 255, 0.76);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        font-size: 0.88rem;
+        font-weight: 900;
+      }
+
+      .pain-panel {
+        display: grid;
+        gap: 14px;
+      }
+
+      .pain-row {
+        display: grid;
+        grid-template-columns: 38px minmax(0, 1fr);
+        gap: 14px;
+        align-items: start;
+        padding: 20px;
+        background: var(--white);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        box-shadow: 0 12px 36px rgba(23, 26, 24, 0.06);
+      }
+
+      .pain-row span {
+        display: grid;
+        place-items: center;
+        width: 34px;
+        height: 34px;
+        color: var(--white);
+        background: var(--coral);
+        border-radius: 999px;
+        font-weight: 900;
+      }
+
+      .pain-row h3,
+      .pain-row p {
+        margin: 0;
+      }
+
+      .pain-row p {
+        color: var(--muted);
+      }
+
+      .phase-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .phase-card {
+        display: grid;
+        gap: 12px;
+        min-height: 270px;
+        padding: 24px;
+        background: var(--white);
+        border: 1px solid var(--line);
+        border-top: 6px solid var(--green);
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+      }
+
+      .phase-card:nth-child(2) {
+        border-top-color: var(--coral);
+      }
+
+      .phase-card:nth-child(3) {
+        border-top-color: var(--aqua);
+      }
+
+      .phase-card span {
+        color: var(--coral);
+        font-size: 0.78rem;
+        font-weight: 900;
+        text-transform: uppercase;
+      }
+
+      .phase-card h3,
+      .phase-card p {
+        margin: 0;
+      }
+
+      .phase-card p {
+        color: var(--muted);
+      }
+
+      .mentor-bridge {
+        display: grid;
+        grid-template-columns: minmax(0, 0.95fr) minmax(300px, 1.05fr);
+        gap: 28px;
+        align-items: center;
+      }
+
+      .bridge-list {
+        display: grid;
+        gap: 12px;
+      }
+
+      .bridge-list p {
+        margin: 0;
+        padding: 16px 18px;
+        background: rgba(255, 255, 255, 0.82);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+      }
+
+      .offer-panel {
+        display: grid;
+        gap: 16px;
+        padding: clamp(24px, 4vw, 34px);
+        color: var(--white);
+        background: var(--ink);
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+      }
+
+      .offer-panel h2,
+      .offer-panel p {
+        margin: 0;
+      }
+
+      .offer-panel p {
+        color: rgba(255, 255, 255, 0.76);
+      }
+
+      .offer-panel .button.primary {
+        color: var(--ink);
+        background: var(--white);
+        border-color: var(--white);
+      }
+
+      .offer-panel .button.secondary {
+        color: var(--white);
+        background: transparent;
+        border-color: rgba(255, 255, 255, 0.34);
+      }
+
+      .comparison-table {
+        width: 100%;
+        border-collapse: collapse;
+        overflow: hidden;
+        background: var(--white);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+      }
+
+      .comparison-table th,
+      .comparison-table td {
+        padding: 16px;
+        border-bottom: 1px solid var(--line);
+        text-align: left;
+        vertical-align: top;
+      }
+
+      .comparison-table th {
+        color: var(--white);
+        background: var(--green-dark);
+      }
+
+      .comparison-table tr:last-child td {
+        border-bottom: 0;
+      }
+
+      .sticky-roadmap-cta {
+        position: fixed;
+        right: 18px;
+        bottom: calc(18px + env(safe-area-inset-bottom));
+        z-index: 20;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        max-width: calc(100% - 36px);
+        padding: 10px;
+        background: rgba(255, 255, 255, 0.82);
+        border: 1px solid rgba(23, 26, 24, 0.12);
+        border-radius: 10px;
+        box-shadow: 0 18px 44px rgba(23, 26, 24, 0.16);
+        backdrop-filter: blur(16px);
+      }
+
+      .sticky-roadmap-cta span {
+        padding: 0 6px;
+        color: var(--muted);
+        font-size: 0.86rem;
+        font-weight: 900;
+        white-space: nowrap;
+      }
+
+      .sticky-roadmap-cta .button {
+        min-height: 40px;
+        padding: 8px 12px;
+        font-size: 0.88rem;
+      }
+
+      @media (max-width: 900px) {
+        .roadmap-hero {
+          background:
+            linear-gradient(rgba(247, 248, 244, 0.92), rgba(247, 248, 244, 0.92)),
+            url("assets/images/roadmap-visual.svg") center bottom / 520px auto no-repeat,
+            var(--paper);
+        }
+
+        .roadmap-hero .section-inner {
+          padding-bottom: 340px;
+        }
+
+        .roadmap-strip,
+        .phase-grid,
+        .mentor-bridge {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 620px) {
+        .roadmap-hero {
+          min-height: auto;
+          background:
+            linear-gradient(rgba(247, 248, 244, 0.95), rgba(247, 248, 244, 0.95)),
+            url("assets/images/roadmap-visual.svg") center bottom / 360px auto no-repeat,
+            var(--paper);
+        }
+
+        .roadmap-hero .section-inner {
+          padding-top: 46px;
+          padding-bottom: 260px;
+        }
+
+        .roadmap-hero h1 {
+          max-width: 354px;
+          font-size: 2rem;
+          line-height: 1.18;
+        }
+
+        .pain-row,
+        .phase-card,
+        .offer-panel {
+          max-width: 354px;
+        }
+
+        .comparison-table {
+          display: block;
+          max-width: 354px;
+          overflow-x: auto;
+        }
+
+        .sticky-roadmap-cta {
+          position: static;
+          display: grid;
+          width: calc(100% - 36px);
+          margin: 0 auto 24px;
+        }
+
+        .sticky-roadmap-cta span {
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html">未来収入ラボ</a>
+      <nav class="nav" aria-label="主要ページ">
+        <a href="index.html">TOP</a>
+        <a href="free-gift.html">無料資料</a>
+        <a href="diagnosis.html">診断</a>
+        <a href="mentor.html" aria-current="page">3か月伴走</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="roadmap-hero">
+        <div class="section-inner">
+          <div class="roadmap-hero-copy">
+            <p class="pill-label">Etsy × Printify × AI商品づくり</p>
+            <h1>やることは見えた。<br>でも、一人で進めるには少し多い。</h1>
+            <p class="lead">
+              Etsyで受注生産型の商品づくりを始めると、最初に見るべき項目は想像以上にあります。アカウント設定、リサーチ、デザイン、出品、価格、規約、販売後の対応まで。未来収入ラボでは、その順番を整理しながら3か月で実行できる形にしていきます。
+            </p>
+            <div class="hero-actions">
+              <a class="button primary" href="apply.html">3か月伴走に相談する</a>
+              <a class="button secondary" href="#roadmap">全体像を見る</a>
+            </div>
+            <div class="roadmap-strip" aria-label="主な作業範囲">
+              <span>初期設定</span>
+              <span>商品づくり</span>
+              <span>出品準備</span>
+              <span>改善運用</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="band">
+        <div class="section-inner mentor-bridge">
+          <div class="section-heading">
+            <p class="eyebrow">Reality</p>
+            <h2>Etsy販売は、始める前から判断が多い</h2>
+            <p>表にするとシンプルに見えます。でも実際には、1つずつの作業で「これはどっちを選ぶべきか」が出てきます。</p>
+          </div>
+          <div class="pain-panel">
+            <article class="pain-row">
+              <span>1</span>
+              <div>
+                <h3>Etsy、Printify、Payoneerの役割が混ざる</h3>
+                <p>どこでショップ名を決め、どこで発送表示名を使い、どこで受け取り口座を設定するかが最初の壁になります。</p>
+              </div>
+            </article>
+            <article class="pain-row">
+              <span>2</span>
+              <div>
+                <h3>デザインより先に、規約と権利確認が必要</h3>
+                <p>AI画像、商標、キャラクター、制作パートナー開示など、売る前に避けるべき落とし穴があります。</p>
+              </div>
+            </article>
+            <article class="pain-row">
+              <span>3</span>
+              <div>
+                <h3>出品後も終わりではない</h3>
+                <p>注文確認、発送状況、メッセージ、レビュー、数字を見た改善まで含めて、やっと運用になります。</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-inner flow-section" id="roadmap">
+        <div class="section-heading">
+          <p class="eyebrow">Roadmap</p>
+          <h2>初心者が迷いやすい作業を、3つに分けて進める</h2>
+          <p>大切なのは、全部を一気に完璧にすることではありません。今やること、あとで直すこと、最初から外してはいけないことを分けます。</p>
+        </div>
+        <div class="phase-grid">
+          <article class="phase-card">
+            <span>Phase 1</span>
+            <h3>売る場所を作る</h3>
+            <p>Etsyアカウント、Payoneer、Printify連携、ショップ設定、返品や発送ポリシーを確認します。ここは地味ですが、後から崩れると全部止まります。</p>
+          </article>
+          <article class="phase-card">
+            <span>Phase 2</span>
+            <h3>商品を作って出す</h3>
+            <p>リサーチ、プロンプト、デザイン、背景透過、アップスケール、モックアップ、タイトル、タグ、説明文、価格までを1商品で通します。</p>
+          </article>
+          <article class="phase-card">
+            <span>Phase 3</span>
+            <h3>数字を見て直す</h3>
+            <p>表示、クリック、購入のどこで止まっているかを確認し、画像、タイトル、価格、商品展開のどれを直すかを決めます。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="band">
+        <div class="section-inner">
+          <div class="section-heading">
+            <p class="eyebrow">Checklist</p>
+            <h2>最初に抜けやすい確認項目</h2>
+            <p>初心者ほど、デザイン作成より前に確認しておくと安全です。</p>
+          </div>
+          <div class="check-grid">
+            <p>Payoneer登録、本人確認、銀行口座連携</p>
+            <p>Etsyショップ名とPrintify側の発送表示名/ストア設定</p>
+            <p>Printifyなど制作パートナーの開示</p>
+            <p>AI生成物を使う場合の表示と説明</p>
+            <p>商標、キャラクター、ブランド名、フォントや素材ライセンス</p>
+            <p>Printify原価、Etsy手数料、決済手数料、送料、広告費を入れた価格</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-inner flow-section">
+        <div class="mentor-bridge">
+          <div>
+            <p class="eyebrow">Why Mentorship</p>
+            <h2>リストだけでは進まないところを、一緒に判断する</h2>
+            <p>
+              チェックリストは地図です。でも実際に進むと、商品案の選び方、画像の使える/使えない、価格の決め方、出品前の見直しで止まりやすくなります。3か月伴走では、その判断を一緒に進めます。
+            </p>
+          </div>
+          <div class="bridge-list">
+            <p>今の状態に合わせて、最初の1商品までの順番を決める</p>
+            <p>商品案、タイトル、タグ、説明文を一緒に見直す</p>
+            <p>規約や権利リスクを軽視しない進め方に整える</p>
+            <p>出品後の数字を見て、次に直す1点を決める</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="band">
+        <div class="section-inner">
+          <div class="section-heading">
+            <p class="eyebrow">Difference</p>
+            <h2>無料チェックリストと3か月伴走の違い</h2>
+          </div>
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>項目</th>
+                <th>チェックリスト</th>
+                <th>3か月伴走</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>全体像</td>
+                <td>やることを順番に確認できる</td>
+                <td>今の状況に合わせて、どこから始めるか決める</td>
+              </tr>
+              <tr>
+                <td>商品づくり</td>
+                <td>作業項目はわかる</td>
+                <td>商品案、画像、モックアップ、タイトルを見ながら進める</td>
+              </tr>
+              <tr>
+                <td>出品</td>
+                <td>必要項目を確認できる</td>
+                <td>価格、タグ、説明文、制作パートナー、AI開示まで確認する</td>
+              </tr>
+              <tr>
+                <td>改善</td>
+                <td>売れた後に見る項目がわかる</td>
+                <td>表示、クリック、購入のどこで止まったか一緒に整理する</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section-inner flow-section">
+        <div class="offer-panel">
+          <p class="eyebrow">3 Months Support</p>
+          <h2>AI商品づくり3か月伴走</h2>
+          <p>
+            Etsyでの受注生産型販売を入口に、リサーチ、商品作成、出品、改善までを一緒に進めます。売上保証ではなく、自分で判断して進めるための型を3か月で残すプログラムです。
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="apply.html">申し込み・事前確認へ進む</a>
+            <a class="button secondary" href="mentor.html#pricing">料金と内容を見る</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="band">
+        <div class="section-inner narrow">
+          <div class="section-heading centered">
+            <p class="eyebrow">Important</p>
+            <h2>約束できること、できないこと</h2>
+          </div>
+          <div class="promise-grid">
+            <article class="promise-card positive">
+              <h3>約束できること</h3>
+              <p><span class="checkmark">✓</span>作業の順番を整理すること</p>
+              <p><span class="checkmark">✓</span>商品作成と出品の判断を一緒に進めること</p>
+              <p><span class="checkmark">✓</span>止まりやすい部分を見える化すること</p>
+              <p><span class="checkmark">✓</span>卒業後も続けるための手順を残すこと</p>
+            </article>
+            <article class="promise-card muted">
+              <h3>約束できないこと</h3>
+              <p>売上や利益の保証</p>
+              <p>放置で収入になる仕組み</p>
+              <p>規約確認や権利確認の完全代行</p>
+              <p>出品代行、デザイン制作代行</p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="sticky-roadmap-cta" aria-label="3か月伴走への導線">
+      <span>一人で止まりそうなら</span>
+      <a class="button primary" href="apply.html">事前確認へ</a>
+    </div>
+
+    <footer class="site-footer">
+      <p>未来収入ラボ</p>
+      <p>AIと受注生産型の商品販売を活用して、海外販売に挑戦するための実践情報をお届けします</p>
+      <p><a href="privacy.html">プライバシーポリシー</a> / <a href="legal.html">特定商取引法に基づく表記</a></p>
+    </footer>
+  </body>
+</html>
+
+

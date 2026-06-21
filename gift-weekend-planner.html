@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="ja">
   <head>
     <meta charset="utf-8">
@@ -11,9 +11,10 @@
     <header class="site-header">
       <a class="brand" href="index.html">未来収入ラボ</a>
       <nav class="nav" aria-label="主要ページ">
+        <a href="index.html">TOP</a>
         <a href="free-gift.html" aria-current="page">無料資料</a>
         <a href="diagnosis.html">診断</a>
-        <a href="mentor.html">3ヶ月伴走</a>
+        <a href="mentor.html">3か月伴走</a>
       </nav>
     </header>
 
@@ -41,8 +42,16 @@
             <p>次の7日で作る1商品、見るニッチ候補、出品前に残っている作業、次週に直す1点が決まります。</p>
           </article>
         </div>
-
-        <h2>まず決めること</h2>
+        <nav class="page-anchor-nav" aria-label="このページの現在地">
+          <span>現在地</span>
+          <a href="#planner-start">まず決めること</a>
+          <a href="#planner-calendar">ニッチ</a>
+          <a href="#planner-blocks">作業ブロック</a>
+          <a href="#planner-days">7日間</a>
+          <a href="#planner-bottleneck">診断</a>
+          <a href="#planner-next">次のステップ</a>
+        </nav>
+        <h2 id="planner-start">まず決めること</h2>
         <div class="write-grid planner-write-grid">
           <article class="write-box">
             <span>今週の目的</span>
@@ -62,8 +71,8 @@
           </article>
         </div>
 
-        <h2>ニッチカレンダー軽量版</h2>
-        <p>季節ものは、見つけた月に作ると遅いことがあります。まずは1から2ヶ月先を見て、誰に、どんな場面で、何の商品にするかを組み合わせます。</p>
+        <h2 id="planner-calendar">ニッチカレンダー軽量版</h2>
+        <p>季節ものは、見つけた月に作ると遅いことがあります。まずは1から2か月先を見て、誰に、どんな場面で、何の商品にするかを組み合わせます。</p>
         <div class="simple-table-wrap">
           <table class="simple-table">
             <thead>
@@ -86,7 +95,7 @@
           <p>対象者 × 場面 × 感情 × 商品形 = 商品テーマ。例: Teacher × Summer vacation × やっと休める × Tシャツ</p>
         </div>
 
-        <h2>作業ブロック</h2>
+        <h2 id="planner-blocks">作業ブロック</h2>
         <div class="gift-grid">
           <article class="card">
             <span class="card-number">30分</span>
@@ -105,7 +114,7 @@
           </article>
         </div>
 
-        <h2>7日間の記入欄</h2>
+        <h2 id="planner-days">7日間の記入欄</h2>
         <div class="planner-days">
           <article><span>1日目</span><p>商品テーマと購入者を1つに絞る</p></article>
           <article><span>2日目</span><p>参考画像を集め、AIに観察させる</p></article>
@@ -116,7 +125,7 @@
           <article><span>7日目</span><p>表示、クリック、次に直す場所をメモする</p></article>
         </div>
 
-        <h2>ボトルネック診断</h2>
+        <h2 id="planner-bottleneck">ボトルネック診断</h2>
         <div class="simple-table-wrap">
           <table class="simple-table">
             <thead>
@@ -132,12 +141,12 @@
         </div>
 
         <div class="notice">
-          <h2>進め方で迷う場合</h2>
-          <p>3ヶ月伴走に進むか迷う場合は、申込みメール内に「事前確認希望」と書いてください。今の状況を整理してから、伴走に進むか判断できます。</p>
+          <h2 id="planner-next">進め方で迷う場合</h2>
+          <p>3か月伴走に進むか迷う場合は、申込みフォームで「事前確認希望」を選んでください。今の状況を整理してから、伴走に進むか判断できます。</p>
         </div>
 
         <div class="resource-footer-actions">
-          <a class="button primary" href="mentor.html">3ヶ月伴走を見る</a>
+          <a class="button primary" href="mentor.html">3か月伴走を見る</a>
           <a class="button secondary" href="free-gift.html">無料資料に戻る</a>
           <a class="button secondary" href="diagnosis.html">迷ったら診断する</a>
         </div>
@@ -148,5 +157,38 @@
       <p>未来収入ラボ</p>
       <p>AIと受注生産型の商品販売を活用して、海外販売に挑戦するための実践情報をお届けします</p>
     </footer>
-  </body>
+    <script>
+      const pageAnchorNav = document.querySelector(".page-anchor-nav");
+      if (pageAnchorNav) {
+        const links = Array.from(pageAnchorNav.querySelectorAll("a"));
+        const sections = links
+          .map((link) => document.querySelector(link.getAttribute("href")))
+          .filter(Boolean);
+
+        function setCurrentSection(id) {
+          links.forEach((link) => {
+            const isCurrent = link.getAttribute("href") === `#${id}`;
+            if (isCurrent) {
+              link.setAttribute("aria-current", "true");
+            } else {
+              link.removeAttribute("aria-current");
+            }
+          });
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+          const visible = entries
+            .filter((entry) => entry.isIntersecting)
+            .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+          if (visible) setCurrentSection(visible.target.id);
+        }, { rootMargin: "-38% 0px -52% 0px", threshold: [0, 0.2, 0.6] });
+
+        sections.forEach((section) => observer.observe(section));
+        setCurrentSection(sections[0].id);
+      }
+    </script>  </body>
 </html>
+
+
+
+
