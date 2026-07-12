@@ -1,255 +1,108 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="ja">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>未来収入ラボ | 40代から経験・作品・働き方を未来に残す</title>
-    <meta name="description" content="40代から、経験・作品・働き方を未来に残すために、AI、資料づくり、小さなものづくりを試す実践ラボです">
-    <link rel="stylesheet" href="assets/css/style.css">
-  </head>
-  <body class="home-page">
-    <div class="scroll-progress" aria-hidden="true"></div>
-    <header class="site-header">
-      <a class="brand" href="index.html">未来収入ラボ</a>
-      <nav class="nav" aria-label="主要ページ">
-        <a href="index.html" aria-current="page">TOP</a>
-        <a href="free-gift.html">無料資料</a>
-        <a href="diagnosis.html">診断</a>
-        <a href="mentor.html">Etsy伴走</a>
-        <a href="faq.html">FAQ</a>
-        <a href="profile.html">プロフィール</a>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>未来収入ラボ | 新LP</title>
+  <meta name="description" content="AIを使い、EtsyとPODで最初の商品を形にするための実務ラボです。">
+  <link rel="icon" type="image/png" href="assets/images/mirainlab-favicon.png?v=20260712">
+  <link rel="stylesheet" href="new/assets/new-lp.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">本文へ移動</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html"><img class="brand-logo" src="assets/images/mametaro-icon.png" alt="" aria-hidden="true" width="34" height="34">未来収入ラボ</a>
+      <nav class="site-nav" aria-label="メインナビゲーション">
+        <a href="index.html" aria-current="page">TOP</a><a href="diagnosis.html">診断</a><a href="free-gift.html">スターターキット</a><a href="udemy.html">Udemy</a><a href="paid.html">セルフ教材</a><a href="mentor.html">伴走</a>
       </nav>
-    </header>
+      <button class="icon-button menu-button" type="button" data-menu-toggle aria-label="メニューを開く" aria-expanded="false"><i data-lucide="menu"></i></button>
+      <button class="icon-button" type="button" data-theme-toggle aria-label="ダークモードに切り替える"></button>
+    </div>
+  </header>
 
-    <main>
-      <section class="hero compact-hero interactive-hero modern-hero">
-        <div class="hero-copy">
-          <p class="eyebrow">40代からのAIものづくり</p>
-          <h1 class="kinetic-title" aria-label="経験を棚卸し、AIで形にし、未来に残す">
-            <span>経験を棚卸し</span>
-            <span>AIで形にする</span>
-            <span>未来に残す</span>
-          </h1>
-          <p class="lead">
-            これまでの経験、趣味、知識、作ってみたいものを、AIや小さな商品づくりで形にする。<br class="mobile-only">将来の選択肢を増やすための入口です
-          </p>
+  <main id="main">
+    <section class="hero">
+      <div class="shell hero-grid">
+        <div class="hero-copy" data-reveal>
+          <p class="eyebrow">AI × Etsy × POD</p>
+          <h1>今日つくる1枚が、<span class="marker">決まらない。</span></h1>
+          <p class="lead">副業を始めたいのに、商品案、デザイン、出品設定で止まってしまう。未来収入ラボは、最初の判断を順番に減らし、Etsyへ商品を出すところまでつなぎます。</p>
           <div class="hero-actions">
-            <a class="button primary" href="free-gift.html">Etsy無料5点セットを見る</a>
-            <a class="button secondary" href="profile.html">運営者の考えを見る</a>
+            <a class="button orange" href="diagnosis.html"><i data-lucide="clipboard-check"></i>現在地を5問で診断する</a>
+            <a class="button secondary" href="free-gift.html">無料スターターを見る<i data-lucide="arrow-right"></i></a>
           </div>
-          <p class="microcopy">お金だけを目的にせず、自分で判断できる材料と、残せる形を一緒に増やしていきます</p>
         </div>
 
-        <div class="hero-lab gift-preview" aria-label="Etsy無料5点セットのプレビュー">
-          <canvas id="lab-flow-canvas" class="lab-flow-canvas" aria-hidden="true"></canvas>
-          <div class="gift-preview-stack">
-            <p class="lab-kicker">Etsy無料5点セット</p>
-            <a class="gift-preview-card primary-preview" href="gift-startup-checklist.html">
-              <span class="card-number">01</span>
-              <h2>Etsy現在地チェックシート</h2>
-              <p>使える時間、商品テーマ、権利リスク、出品前の抜け漏れを確認します。</p>
-            </a>
-            <a class="gift-preview-card secondary-preview" href="https://chatgpt.com/g/g-69fcfb261c688191bdc76d6de7b7c28b-etsysiyotuhukai-she-tesaina" target="_blank" rel="noopener">
-              <span class="card-number">02</span>
-              <h2>ショップ設定 GPTs</h2>
-              <p>ショップ設定、SEO、返信文に使うGPTsです。</p>
-            </a>
-            <a class="gift-preview-card tertiary-preview" href="https://chatgpt.com/g/g-6981db3afbc88191b243e1e12bb465d8-etsy-shang-pin-ming-taku-v2" target="_blank" rel="noopener">
-              <span class="card-number">03</span>
-              <h2>SEO GPTs</h2>
-              <p>商品名、説明文、13タグの下書きを作ります。</p>
-            </a>
-            <a class="gift-preview-card" href="https://chatgpt.com/g/g-69f6fe917a60819193d5d2466b984e43-fan-xin-wen-meka" target="_blank" rel="noopener">
-              <span class="card-number">04</span>
-              <h2>返信文 GPTs</h2>
-              <p>注文後や問い合わせ対応の文面を作ります。</p>
-            </a>
-            <a class="gift-preview-card" href="https://etsy-profit-calculator-mvp.vercel.app/" target="_blank" rel="noopener">
-              <span class="card-number">05</span>
-              <h2>利益計算アプリ</h2>
-              <p>価格、原価、送料、手数料を確認します。</p>
-            </a>
-          </div>
-        </div>
-      </section>
+        <figure class="slide-visual hero-slide" data-reveal><img src="new/assets/images/top-product-flow.jpg" width="1672" height="941" alt="商品案を選び、デザイン画像を作り、Tシャツ商品にする3段階の流れ" loading="eager" decoding="async"><figcaption>商品案から商品公開準備までの流れ</figcaption></figure>
+      </div>    </section>
 
-      <section class="band">
-        <div class="section-inner">
-          <div class="editor-note">
-            <span>未来収入ラボより</span>
-            <p>未来収入ラボは、40代からの経験や知識を、AI、資料づくり、小さなものづくりで形にする場所です。残したいものは人それぞれですが、いまはEtsyを題材にしています。AIで作ったデジタルなものを、カードやTシャツ、冊子のように手に取れる形へ戻せるのが面白いからです。販売は目的のすべてではなく、作品や手順を残す実験として扱っています。</p>
-          </div>
-          <div class="section-heading">
-            <p class="eyebrow">入口</p>
-            <h2>残し方は、ひとつではありません</h2>
-            <p>まずは自分に近い入口から、小さく試せる形に分けて考えます</p>
-          </div>
-          <div class="gift-grid">
-            <article class="card">
-              <span class="card-number">A</span>
-              <h3>小さな商品を作る</h3>
-              <p>デジタルで作ったものを、カード、Tシャツ、冊子など手に取れる形にもしていきます</p>
-            </article>
-            <article class="card">
-              <span class="card-number">B</span>
-              <h3>経験を資料にする</h3>
-              <p>仕事、趣味、失敗談、手順をチェックリストや教材、テンプレートとして残します</p>
-            </article>
-            <article class="card">
-              <span class="card-number">C</span>
-              <h3>作品や思い出を残す</h3>
-              <p>家族、写真、文章、アナログな記録を、AIやデザインツールで見返せる形にします</p>
-            </article>
-          </div>
-          <div class="section-heading">
-            <p class="eyebrow">無料資料</p>
-            <h2>無料資料は、読むだけで終わらない<br>5点セットです</h2>
-            <p>
-              Etsyでデジタルな作品や商品案を形にする前に、チェックシート、GPTs 3つ、利益計算アプリで、確認、作成、価格確認まで小さく進められるように整理しました
-            </p>
-          </div>
-          <div class="gift-grid">
-            <article class="card">
-              <span class="card-number">01</span>
-              <h3>Etsy現在地チェックシート</h3>
-              <p>使える時間、商品テーマ、権利リスク、費用感、見せ方、出品前の抜け漏れを確認します</p>
-            </article>
-            <article class="card">
-              <span class="card-number">02</span>
-              <h3>ショップ設定 GPTs</h3>
-              <p>ショップ名、アイコン、バナー、プロフィールなど、開設時のたたき台を作ります</p>
-            </article>
-            <article class="card">
-              <span class="card-number">03</span>
-              <h3>SEO GPTs</h3>
-              <p>商品名、商品説明、13タグの下書きを作り、出品前の比較・確認に使えます</p>
-            </article>
-            <article class="card">
-              <span class="card-number">04</span>
-              <h3>返信文 GPTs</h3>
-              <p>注文後や問い合わせ、発送状況、遅延、レビュー返信などの英語対応に使えます</p>
-            </article>
-            <article class="card">
-              <span class="card-number">05</span>
-              <h3>利益計算アプリ</h3>
-              <p>価格、原価、送料、手数料を入れて、Etsy販売で利益が残るかを確認できます</p>
-            </article>
-          </div>
-          <div class="hero-actions">
-            <a class="button primary" href="free-gift.html">Etsy無料5点セットを見る</a>
-          </div>
+    <section class="section compact">
+      <div class="shell">
+        <div class="rail" aria-label="迷いを減らす3工程">
+          <article class="rail-step"><span class="step-no">01 / FIND</span><h3>止まっている場所を知る</h3><p>商品案、画像、設定、運営、継続。まず現在地を分けます。</p></article>
+          <article class="rail-step"><span class="step-no">02 / MAKE</span><h3>最初の1案を形にする</h3><p>無料PDFを順番に進め、販売に使うデザイン画像を1枚作ります。</p></article>
+          <article class="rail-step"><span class="step-no">03 / LIST</span><h3>商品にして公開する</h3><p>動画、セルフ教材、直接支援から、自分に合う進め方を選びます。</p></article>
         </div>
-      </section>
-
-      <section class="section-inner scrolly-section" aria-labelledby="flow-title">
-        <div class="scrolly-sticky">
-          <p class="eyebrow">進め方</p>
-          <h2 id="flow-title">何を残すかを決めてから、形にする</h2>
-          <p>
-            いきなり稼ぎ方を探すのではなく、自分の経験や作りたいものを棚卸しし、AIで小さく試し、必要に応じて販売や公開まで進めます。
-          </p>
-        </div>
-        <div class="scrolly-steps">
-          <article class="step-card">
-            <span class="step-index">01</span>
-            <h3>残したいものを決める</h3>
-            <p>経験、趣味、仕事の知識、家族に残したい記録など、形にしたいテーマを言葉にします。</p>
-          </article>
-          <article class="step-card">
-            <span class="step-index">02</span>
-            <h3>AIで試作品にする</h3>
-            <p>文章、画像、チェックリスト、商品案など、まず見える形にして、自分で判断できる材料を作ります。</p>
-          </article>
-          <article class="step-card">
-            <span class="step-index">03</span>
-            <h3>公開や販売の形を選ぶ</h3>
-            <p>自分用、家族用、無料配布、デジタル商品、手に取れる作品など、無理のない出し方を選びます。</p>
-          </article>
-          <article class="step-card">
-            <span class="step-index">04</span>
-            <h3>続ける型にする</h3>
-            <p>反応や作業時間を見ながら、次に残すもの、直すもの、増やすものを決めます。</p>
-          </article>
-        </div>
-      </section>
-      <section class="band">
-        <div class="section-inner">
-          <div class="section-heading">
-            <p class="eyebrow">About</p>
-            <h2>未来収入ラボが大切にしていること</h2>
-            <p>お金の話を避けるのではなく、前面に出しすぎない。収入は目的のすべてではなく、未来に残すものを作った先にある選択肢のひとつとして扱います</p>
-          </div>
-          <div class="promise-grid">
-            <article class="promise-card positive">
-              <h3>目指すこと</h3>
-              <p><span class="checkmark">✓</span>40代からでも始められる小さな実践を作る</p>
-              <p><span class="checkmark">✓</span>経験、知識、作品を見える形に残す</p>
-              <p><span class="checkmark">✓</span>働き方や収入源の選択肢を増やす</p>
-            </article>
-            <article class="promise-card muted">
-              <h3>煽らないこと</h3>
-              <p>短期間で大きく稼げるという約束</p>
-              <p>AIに任せれば自動で収入になるという見せ方</p>
-              <p>不安をあおって高額商品へ急がせる導線</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section-inner flow-section jiyugaoka-section">
-        <div class="section-heading">
-          <p class="eyebrow">Jiyugaoka</p>
-          <h2>自由が丘で、小さな作業会を試しています</h2>
-          <p>大きな交流会やセミナーではなく、まずは少人数で集まり、AIでテーマを言葉にしたり、資料や商品案を少し作ったりする会として試しています。</p>
-        </div>
-        <div class="check-grid">
-          <p>40代から何かを残したい人のための作業時間</p>
-          <p>AI、資料づくり、商品案づくりをその場で少し進める</p>
-          <p>売り込みより、次にやることを持ち帰る場にする</p>
-        </div>
-        <div class="hero-actions">
-          <button class="button secondary is-disabled" type="button" disabled>募集準備中</button>
-        </div>
-      </section>
-
-      <section class="section-inner flow-section next-step-section">
-        <div class="section-heading">
-          <p class="eyebrow">次のステップ</p>
-          <h2>自分に合う残し方を選ぶ</h2>
-          <p>まず無料資料で自分の状況を確認し、必要な場合だけ診断やEtsy 3か月伴走へ進めます</p>
-        </div>
-        <ol class="path-list">
-          <li>
-            <strong>無料資料</strong>
-            <span>5点セットで現在地、ショップ設定、SEO、返信文、利益を確認する</span>
-          </li>
-          <li>
-            <strong>補助診断</strong>
-            <span>迷っている場合だけ、止まっている場所を確認する</span>
-          </li>
-          <li>
-            <strong>Etsy伴走申込み</strong>
-            <span>Etsyの商品案を形にして、出品や改善まで一緒に進めたい場合に申し込む</span>
-          </li>
-        </ol>
-      </section>
-    </main>
-
-    <aside class="floating-cta" aria-label="主要導線">
-      <span>まず資料で確認</span>
-      <a class="button primary" href="free-gift.html">Etsy無料5点セットを見る</a>
-    </aside>
-
-    <footer class="site-footer">
-      <p>未来収入ラボ</p>
-      <p>40代から経験・作品・働き方を未来に残すための実践情報をお届けします</p>
-      <div class="social-links" aria-label="発信リンク">
-        <a href="https://note.com/miraishunyu" target="_blank" rel="noopener">note</a>
-        <a href="https://x.com/mirailab_kay" target="_blank" rel="noopener">X</a>
-        <a href="https://www.youtube.com/@miraishunyu" target="_blank" rel="noopener">YouTube</a>
       </div>
-    </footer>
-    <script src="assets/js/home-experience.js"></script>
-  </body>
+    </section>
+
+    <section class="section band tone-mint">
+      <div class="shell">
+        <div class="section-head" data-reveal><div><p class="eyebrow">START FREE</p><h2>最初は、判断を<br>6つに絞る。</h2></div><p>AI商品づくり無料スターターキットは、テーマ探しから画像の最終確認までを約60分で進める受け取りPDFです。</p></div>
+        <div class="outcome" data-reveal>
+          <div class="outcome-icon"><i data-lucide="image-check"></i></div>
+          <div><h2>最初の商品案とデザイン画像が1枚残る</h2><p>ここまでが無料スターターキットの範囲です。完成後は、その画像を商品へ登録して公開する工程に進みます。</p></div>
+        </div>
+        <div class="hero-actions"><a class="button orange" href="free-gift.html">6ステップを見る<i data-lucide="arrow-right"></i></a></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell">
+        <div class="section-head" data-reveal><div><p class="eyebrow">CHOOSE YOUR WAY</p><h2>出品までの進め方を選ぶ。</h2></div><p>どちらもEtsyへの出品を目指します。違うのは、学び方と、出品後どこまで続けるかです。</p></div>
+        <div class="card-grid">
+          <article class="card" data-reveal><div class="icon-box"><i data-lucide="play-circle"></i></div><p class="eyebrow">UDEMY</p><h3>動画を止めながら<br>最初の1商品を公開</h3><p>実際の画面を見て、自分の画面で同じ操作をしたい方向け。</p><ul><li>商品案から公開まで</li><li>動画で操作を確認</li><li>自分のペースで進行</li></ul><p><a class="text-link" href="udemy.html">Udemyを見る<i data-lucide="arrow-right"></i></a></p></article>
+          <article class="card highlight" data-reveal><div class="icon-box"><i data-lucide="book-open-check"></i></div><p class="eyebrow">BRAIN</p><h3>商品を出し続け<br>運営まで自分で回す</h3><p>需要調査、次の商品、注文対応、入金確認まで整えたい方向け。</p><ul><li>出品HowTo全23章</li><li>ショップ運営編</li><li>シミュレーターと記録表</li></ul><p><a class="text-link" href="paid.html">セルフ教材を見る<i data-lucide="arrow-right"></i></a></p></article>
+          <article class="card" data-reveal><div class="icon-box"><i data-lucide="messages-square"></i></div><p class="eyebrow">SUPPORT</p><h3>直接質問しながら<br>3か月出し続ける</h3><p>一人で抱えず、今週やることと次の商品を一緒に整理したい方向け。</p><ul><li>90分スポット相談</li><li>全8回を基本にした1on1</li><li>期間中の質問サポート</li></ul><p><a class="text-link" href="mentor.html">相談・伴走を見る<i data-lucide="arrow-right"></i></a></p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section band tone-warm">
+      <div class="shell">
+        <div class="section-head" data-reveal><div><p class="eyebrow">FOR BEGINNERS</p><h2>知識を集めるより、<br>最初の1商品を通す。</h2></div><p>未来収入ラボは、短期間で売れることを約束する場所ではありません。商品案を選び、公開し、数字を見て次へ進むための判断順を整える場所です。</p></div>
+        <div class="fit-grid">
+          <article class="fit-panel" data-reveal><h3><i data-lucide="circle-check"></i>向いている方</h3><ul><li>AI画像は作ったが、商品にできず止まっている</li><li>EtsyやPrintifyを初めて使う</li><li>副業として小さく出品を試したい</li><li>調べ続ける時間を、実際の作業へ変えたい</li></ul></article>
+          <article class="fit-panel" data-reveal><h3><i data-lucide="circle-minus"></i>合わない可能性がある方</h3><ul><li>短期間の売上や利益を保証してほしい</li><li>作業をすべて代行してほしい</li><li>権利確認をせず、流行作品をそのまま使いたい</li><li>商品公開後の検証を行う予定がない</li></ul></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell">
+        <div class="profile-panel" data-reveal><div class="profile-symbol"><img class="profile-character" src="assets/images/mametaro-profile-handdrawn.png" alt="" aria-hidden="true" width="900" height="900"></div><div><p class="eyebrow">ABOUT MIRAI LAB</p><h2 style="font-size:clamp(28px,3vw,42px)">未来収入ラボが、商品づくりの判断順を整理します。</h2><p>海外PODとEtsyの商品づくりを調べ、初心者が止まりやすい場所を、教材、診断、相談に分けて案内しています。派手な成功例を並べるのではなく、何を確認し、どこを直し、いつ保留するかを残すことを重視しています。</p><a class="text-link" href="profile.html">プロフィールを見る<i data-lucide="arrow-right"></i></a></div></div>
+      </div>
+    </section>
+
+    <section class="section band tone-mint">
+      <div class="narrow"><div class="section-head"><div><p class="eyebrow">FAQ</p><h2>始める前の確認。</h2></div><p>迷いやすい点を先に分けます。</p></div><div class="faq-list">
+        <details><summary>パソコンや英語が得意でなくても進められますか？</summary><div class="faq-answer"><p>画面の名称や英語例を確認しながら進める設計です。ただし、EtsyやPrintifyのアカウント作成と基本的なパソコン操作は必要です。</p></div></details>
+        <details><summary>無料スターターキットだけで出品までできますか？</summary><div class="faq-answer"><p>無料の範囲は、最初の商品案と販売に使うデザイン画像までです。その先の登録・公開は、概要を見て自分で進めるか、UdemyまたはBrainを利用できます。</p></div></details>
+        <details><summary>UdemyとBrainは両方必要ですか？</summary><div class="faq-answer"><p>両方買う必要はありません。動画で最初の1商品を公開したい方はUdemy、出品後の運営まで手順書で回したい方はBrainが向いています。</p></div></details>
+        <details><summary>売れるまでどのくらいかかりますか？</summary><div class="faq-answer"><p>期間は商品、需要、競合、価格、時期によって変わり、保証できません。公開後は短期で結論を出さず、数字を記録して改善や更新を判断します。</p></div></details>
+      </div></div>
+    </section>
+    <section class="section band tone-forest">
+      <div class="narrow" data-reveal>
+        <p class="eyebrow">START HERE</p><h2>何を選ぶかより、<br>どこで止まっているかから。</h2><p class="lead" style="color:#c9ddd5">5つの質問で、いま必要な手順と次の7日間を整理します。</p>
+        <div class="hero-actions"><a class="button orange" href="diagnosis.html">現在地を診断する<i data-lucide="arrow-right"></i></a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="shell footer-grid"><div><a class="brand" href="index.html"><img class="brand-logo" src="assets/images/mametaro-icon.png" alt="" aria-hidden="true" width="34" height="34">未来収入ラボ</a><p class="footer-note">小さく作り、公開し、次の判断へ。</p></div><nav class="footer-nav"><a href="faq.html">FAQ</a><a href="profile.html">プロフィール</a><a href="privacy.html">プライバシー</a><a href="legal.html">特商法表記</a></nav></div></footer>
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script><script src="new/assets/new-lp.js"></script>
+</body>
 </html>
 
