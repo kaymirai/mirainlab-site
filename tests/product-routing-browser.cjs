@@ -77,11 +77,19 @@ function expectedHref(prefix, target) {
       const summary = mainOffer?.querySelector('.mentor-offer-summary');
       const price = mainOffer?.querySelector('.mentor-entry-price');
       const heading = mainOffer?.querySelector('h2');
+      const entryAmount = price?.querySelector('.price-amount');
       const entryUnit = price?.querySelector('.price-unit');
       const finalPrice = [...document.querySelectorAll('.price-box .price')]
         .find((element) => element.textContent.includes('69,800'));
+      const finalAmount = finalPrice?.querySelector('.price-amount');
       const finalUnit = finalPrice?.querySelector('.price-unit');
       const spot = document.querySelector('#spot');
+      const consultationPrice = spot?.querySelector('.consultation-price');
+      const consultationAmount = consultationPrice?.querySelector('.price-amount');
+      const consultationUnit = consultationPrice?.querySelector('.price-unit');
+      const featurePairs = [...document.querySelectorAll('.number-feature')];
+      const stylesheetHref = document.querySelector('link[rel="stylesheet"][href*="new-lp.css"]')?.href || '';
+      const timelineNumber = document.querySelector('.timeline-no');
       return {
         heroText: hero?.innerText || '',
         summaryText: summary?.innerText || '',
@@ -94,8 +102,29 @@ function expectedHref(prefix, target) {
         finalUnitRatio: finalUnit && finalPrice
           ? Number.parseFloat(getComputedStyle(finalUnit).fontSize) / Number.parseFloat(getComputedStyle(finalPrice).fontSize)
           : 0,
+        consultationUnitRatio: consultationUnit && consultationPrice
+          ? Number.parseFloat(getComputedStyle(consultationUnit).fontSize) / Number.parseFloat(getComputedStyle(consultationPrice).fontSize)
+          : 0,
+        priceFontsDiffer: Boolean(
+          entryAmount && entryUnit && finalAmount && finalUnit && consultationAmount && consultationUnit
+          && getComputedStyle(entryAmount).fontFamily !== getComputedStyle(entryUnit).fontFamily
+          && getComputedStyle(finalAmount).fontFamily !== getComputedStyle(finalUnit).fontFamily
+          && getComputedStyle(consultationAmount).fontFamily !== getComputedStyle(consultationUnit).fontFamily
+        ),
+        featurePairCount: featurePairs.length,
+        featurePairsValid: featurePairs.length > 0 && featurePairs.every((pair) => {
+          const value = pair.querySelector('.number-value');
+          const unit = pair.querySelector('.number-unit');
+          if (!value || !unit) return false;
+          const ratio = Number.parseFloat(getComputedStyle(unit).fontSize) / Number.parseFloat(getComputedStyle(value).fontSize);
+          return ratio >= 0.6 && ratio <= 0.75 && getComputedStyle(value).fontFamily !== getComputedStyle(unit).fontFamily;
+        }),
+        sequenceUsesNumberFont: Boolean(timelineNumber && entryAmount
+          && getComputedStyle(timelineNumber).fontFamily === getComputedStyle(entryAmount).fontFamily),
+        stylesheetVersioned: Boolean(stylesheetHref && new URL(stylesheetHref).searchParams.has('v')),
         entryPriceText: price?.textContent.replace(/\s+/g, '') || '',
         finalPriceText: finalPrice?.textContent.replace(/\s+/g, '') || '',
+        consultationPriceText: consultationPrice?.textContent.replace(/\s+/g, '') || '',
         heroFormHref: hero?.querySelector(`a[href="${formUrl}"]`)?.href || '',
         spotText: spot?.innerText || '',
         spotHref: spot?.querySelector(`a[href="${spotUrl}"]`)?.href || '',
@@ -110,7 +139,12 @@ function expectedHref(prefix, target) {
     if (!mentor.summaryBeforePrice) failures.push(`${routeName} mentor: price appears before the package summary`);
     if (!mentor.priceFontSize || mentor.priceFontSize > mentor.headingFontSize) failures.push(`${routeName} mentor: entry price visually dominates the offer heading`);
     if (mentor.entryPriceText !== '69,800円（税込）' || mentor.finalPriceText !== '69,800円（税込）') failures.push(`${routeName} mentor: mentorship price wording changed`);
-    if (mentor.entryUnitRatio < 0.5 || mentor.entryUnitRatio > 0.6 || mentor.finalUnitRatio < 0.5 || mentor.finalUnitRatio > 0.6) failures.push(`${routeName} mentor: yen unit is not visually subordinate to the price digits`);
+    if (mentor.entryUnitRatio < 0.62 || mentor.entryUnitRatio > 0.72 || mentor.finalUnitRatio < 0.62 || mentor.finalUnitRatio > 0.72 || mentor.consultationUnitRatio < 0.62 || mentor.consultationUnitRatio > 0.72) failures.push(`${routeName} mentor: price units do not share the intended hierarchy`);
+    if (!mentor.priceFontsDiffer) failures.push(`${routeName} mentor: price digits and Japanese units use the same typeface`);
+    if (mentor.consultationPriceText !== '6,000円/90分') failures.push(`${routeName} mentor: 90-minute consultation price wording changed`);
+    if (mentor.featurePairCount < 6 || !mentor.featurePairsValid) failures.push(`${routeName} mentor: featured durations and counts lack a consistent number-unit hierarchy`);
+    if (!mentor.sequenceUsesNumberFont) failures.push(`${routeName} mentor: sequence numbers do not use the shared numeric typeface`);
+    if (!mentor.stylesheetVersioned) failures.push(`${routeName} mentor: stylesheet URL cannot invalidate stale browser caches`);
     if (mentor.heroFormHref !== formUrl) failures.push(`${routeName} mentor: main offer form CTA mismatch`);
     if (mentor.heroHasSpotOffer) failures.push(`${routeName} mentor: 90-minute offer still dominates hero`);
     if (!mentor.spotText.includes('3か月伴走が自分に合うか') || !mentor.spotText.includes('6,000円')) failures.push(`${routeName} mentor: 90-minute entry role is unclear`);
