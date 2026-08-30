@@ -40,7 +40,8 @@ function expectedHref(prefix, target) {
     });
     if (!top.hasSection) failures.push(`${routeName} TOP: two-route section missing`);
     if (!top.selfStudyText.includes('Udemy') || !top.selfStudyText.includes('Brain')) failures.push(`${routeName} TOP: self-study route does not compare Udemy and Brain`);
-    if (!top.supportText.includes('3か月') || !top.supportText.includes('69,800円')) failures.push(`${routeName} TOP: support route does not show the main offer and price`);
+    if (!top.supportText.includes('3か月')) failures.push(`${routeName} TOP: support route does not show the main offer`);
+    if (top.supportText.includes('69,800円')) failures.push(`${routeName} TOP: price dominates before the mentorship details`);
     if (top.selfStudyText.includes('69,800円') || /Udemy|Brain|90分/.test(top.supportText)) failures.push(`${routeName} TOP: product roles overlap between routes`);
     if (top.supportHref !== expectedHref(prefix, 'mentor.html')) failures.push(`${routeName} TOP: support CTA does not link to mentorship`);
     if (top.spotHref !== expectedHref(prefix, 'mentor.html#spot')) failures.push(`${routeName} TOP: 90-minute entry is not supplemental`);
@@ -72,9 +73,17 @@ function expectedHref(prefix, target) {
     await page.goto(`${base}/${prefix}mentor.html`, { waitUntil: 'domcontentloaded' });
     const mentor = await page.evaluate(({ formUrl, spotUrl }) => {
       const hero = document.querySelector('.page-hero');
+      const mainOffer = hero?.querySelector('[data-main-offer]');
+      const summary = mainOffer?.querySelector('.mentor-offer-summary');
+      const price = mainOffer?.querySelector('.mentor-entry-price');
+      const heading = mainOffer?.querySelector('h2');
       const spot = document.querySelector('#spot');
       return {
         heroText: hero?.innerText || '',
+        summaryText: summary?.innerText || '',
+        summaryBeforePrice: Boolean(summary && price && (summary.compareDocumentPosition(price) & Node.DOCUMENT_POSITION_FOLLOWING)),
+        priceFontSize: price ? Number.parseFloat(getComputedStyle(price).fontSize) : 0,
+        headingFontSize: heading ? Number.parseFloat(getComputedStyle(heading).fontSize) : 0,
         heroFormHref: hero?.querySelector(`a[href="${formUrl}"]`)?.href || '',
         spotText: spot?.innerText || '',
         spotHref: spot?.querySelector(`a[href="${spotUrl}"]`)?.href || '',
@@ -85,6 +94,9 @@ function expectedHref(prefix, target) {
       };
     }, { formUrl, spotUrl });
     if (!mentor.heroText.includes('3か月') || !mentor.heroText.includes('69,800円')) failures.push(`${routeName} mentor: main offer not visible in hero`);
+    if (!mentor.summaryText.includes('全8回') || !mentor.summaryText.includes('期間中の質問') || !mentor.summaryText.includes('終了後30日')) failures.push(`${routeName} mentor: package summary is not visible before price`);
+    if (!mentor.summaryBeforePrice) failures.push(`${routeName} mentor: price appears before the package summary`);
+    if (!mentor.priceFontSize || mentor.priceFontSize > mentor.headingFontSize) failures.push(`${routeName} mentor: entry price visually dominates the offer heading`);
     if (mentor.heroFormHref !== formUrl) failures.push(`${routeName} mentor: main offer form CTA mismatch`);
     if (mentor.heroHasSpotOffer) failures.push(`${routeName} mentor: 90-minute offer still dominates hero`);
     if (!mentor.spotText.includes('3か月伴走が自分に合うか') || !mentor.spotText.includes('6,000円')) failures.push(`${routeName} mentor: 90-minute entry role is unclear`);
