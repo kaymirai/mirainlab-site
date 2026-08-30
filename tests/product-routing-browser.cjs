@@ -77,6 +77,10 @@ function expectedHref(prefix, target) {
       const summary = mainOffer?.querySelector('.mentor-offer-summary');
       const price = mainOffer?.querySelector('.mentor-entry-price');
       const heading = mainOffer?.querySelector('h2');
+      const entryUnit = price?.querySelector('.price-unit');
+      const finalPrice = [...document.querySelectorAll('.price-box .price')]
+        .find((element) => element.textContent.includes('69,800'));
+      const finalUnit = finalPrice?.querySelector('.price-unit');
       const spot = document.querySelector('#spot');
       return {
         heroText: hero?.innerText || '',
@@ -84,6 +88,14 @@ function expectedHref(prefix, target) {
         summaryBeforePrice: Boolean(summary && price && (summary.compareDocumentPosition(price) & Node.DOCUMENT_POSITION_FOLLOWING)),
         priceFontSize: price ? Number.parseFloat(getComputedStyle(price).fontSize) : 0,
         headingFontSize: heading ? Number.parseFloat(getComputedStyle(heading).fontSize) : 0,
+        entryUnitRatio: entryUnit && price
+          ? Number.parseFloat(getComputedStyle(entryUnit).fontSize) / Number.parseFloat(getComputedStyle(price).fontSize)
+          : 0,
+        finalUnitRatio: finalUnit && finalPrice
+          ? Number.parseFloat(getComputedStyle(finalUnit).fontSize) / Number.parseFloat(getComputedStyle(finalPrice).fontSize)
+          : 0,
+        entryPriceText: price?.textContent.replace(/\s+/g, '') || '',
+        finalPriceText: finalPrice?.textContent.replace(/\s+/g, '') || '',
         heroFormHref: hero?.querySelector(`a[href="${formUrl}"]`)?.href || '',
         spotText: spot?.innerText || '',
         spotHref: spot?.querySelector(`a[href="${spotUrl}"]`)?.href || '',
@@ -97,6 +109,8 @@ function expectedHref(prefix, target) {
     if (!mentor.summaryText.includes('全8回') || !mentor.summaryText.includes('期間中の質問') || !mentor.summaryText.includes('終了後30日')) failures.push(`${routeName} mentor: package summary is not visible before price`);
     if (!mentor.summaryBeforePrice) failures.push(`${routeName} mentor: price appears before the package summary`);
     if (!mentor.priceFontSize || mentor.priceFontSize > mentor.headingFontSize) failures.push(`${routeName} mentor: entry price visually dominates the offer heading`);
+    if (mentor.entryPriceText !== '69,800円（税込）' || mentor.finalPriceText !== '69,800円（税込）') failures.push(`${routeName} mentor: mentorship price wording changed`);
+    if (mentor.entryUnitRatio < 0.5 || mentor.entryUnitRatio > 0.6 || mentor.finalUnitRatio < 0.5 || mentor.finalUnitRatio > 0.6) failures.push(`${routeName} mentor: yen unit is not visually subordinate to the price digits`);
     if (mentor.heroFormHref !== formUrl) failures.push(`${routeName} mentor: main offer form CTA mismatch`);
     if (mentor.heroHasSpotOffer) failures.push(`${routeName} mentor: 90-minute offer still dominates hero`);
     if (!mentor.spotText.includes('3か月伴走が自分に合うか') || !mentor.spotText.includes('6,000円')) failures.push(`${routeName} mentor: 90-minute entry role is unclear`);
