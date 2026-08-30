@@ -3,7 +3,7 @@ const path = require('node:path');
 
 const base = process.env.LP_BASE || 'http://127.0.0.1:8133';
 const outputDir = process.env.LP_QA_DIR || 'C:/work/mirainlab-funnel-work/output/product-routing-qa';
-const pages = ['index.html', 'diagnosis.html', 'free-gift.html', 'mentor.html'];
+const pages = ['index.html', 'diagnosis.html', 'free-gift.html', 'udemy.html', 'paid.html', 'mentor.html'];
 const viewports = [
   { name: 'desktop', width: 1440, height: 900 },
   { name: 'mobile', width: 390, height: 844 },
@@ -62,7 +62,7 @@ const viewports = [
     console.error(failures.join('\n'));
     process.exit(1);
   }
-  console.log('PASS: four-page desktop/mobile layout, images, and CTA sizing verified.');
+  console.log('PASS: six-page desktop/mobile layout, images, and CTA sizing verified.');
 })().catch((error) => {
   console.error(error);
   process.exit(1);

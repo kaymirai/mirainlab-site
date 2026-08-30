@@ -170,6 +170,49 @@ function expectedHref(prefix, target) {
     if (diagnosis.selfStudyHref !== expectedHref(prefix, 'index.html#learning-options')) failures.push(`${routeName} diagnosis: self-study route target mismatch`);
     if (diagnosis.supportHref !== expectedHref(prefix, 'mentor.html')) failures.push(`${routeName} diagnosis: support route target mismatch`);
 
+    for (const numericPage of [
+      { path: 'index.html', minFeatures: 5, sequenceSelector: '.step-no', expectsPrice: false },
+      { path: 'free-gift.html', minFeatures: 5, sequenceSelector: '.process-index', expectsPrice: true },
+      { path: 'diagnosis.html', minFeatures: 3, sequenceSelector: '.route-node', expectsPrice: true },
+      { path: 'udemy.html', minFeatures: 5, sequenceSelector: '.process-index', expectsPrice: false },
+      { path: 'paid.html', minFeatures: 5, sequenceSelector: '.curriculum-no', expectsPrice: false },
+    ]) {
+      await page.goto(`${base}/${prefix}${numericPage.path}`, { waitUntil: 'domcontentloaded' });
+      const numericDesign = await page.evaluate(({ sequenceSelector }) => {
+        const featurePairs = [...document.querySelectorAll('.number-feature')];
+        const firstValue = featurePairs[0]?.querySelector('.number-value');
+        const sequence = document.querySelector(sequenceSelector);
+        const price = document.querySelector('[data-numeric-price]');
+        const priceAmount = price?.querySelector('.price-amount');
+        const priceUnit = price?.querySelector('.price-unit');
+        const stylesheetHref = document.querySelector('link[rel="stylesheet"][href*="new-lp.css"]')?.href || '';
+        return {
+          featureCount: featurePairs.length,
+          featurePairsValid: featurePairs.length > 0 && featurePairs.every((pair) => {
+            const value = pair.querySelector('.number-value');
+            const unit = pair.querySelector('.number-unit');
+            if (!value || !unit) return false;
+            const ratio = Number.parseFloat(getComputedStyle(unit).fontSize) / Number.parseFloat(getComputedStyle(value).fontSize);
+            return ratio >= 0.6 && ratio <= 0.75 && getComputedStyle(value).fontFamily !== getComputedStyle(unit).fontFamily;
+          }),
+          sequenceUsesNumberFont: Boolean(sequence && firstValue
+            && getComputedStyle(sequence).fontFamily === getComputedStyle(firstValue).fontFamily),
+          pricePresent: Boolean(price),
+          priceUnitRatio: priceAmount && priceUnit
+            ? Number.parseFloat(getComputedStyle(priceUnit).fontSize) / Number.parseFloat(getComputedStyle(priceAmount).fontSize)
+            : 0,
+          priceFontsDiffer: Boolean(priceAmount && priceUnit
+            && getComputedStyle(priceAmount).fontFamily !== getComputedStyle(priceUnit).fontFamily),
+          stylesheetVersioned: Boolean(stylesheetHref && new URL(stylesheetHref).searchParams.has('v')),
+        };
+      }, { sequenceSelector: numericPage.sequenceSelector });
+      if (numericDesign.featureCount < numericPage.minFeatures || !numericDesign.featurePairsValid) failures.push(`${routeName} ${numericPage.path}: important numbers lack the shared number-unit hierarchy`);
+      if (!numericDesign.sequenceUsesNumberFont) failures.push(`${routeName} ${numericPage.path}: sequence labels do not use the shared numeric typeface`);
+      if (numericDesign.pricePresent !== numericPage.expectsPrice) failures.push(`${routeName} ${numericPage.path}: numeric price scope is incorrect`);
+      if (numericPage.expectsPrice && (numericDesign.priceUnitRatio < 0.62 || numericDesign.priceUnitRatio > 0.72 || !numericDesign.priceFontsDiffer)) failures.push(`${routeName} ${numericPage.path}: route price does not match the shared price hierarchy`);
+      if (!numericDesign.stylesheetVersioned) failures.push(`${routeName} ${numericPage.path}: stylesheet URL cannot invalidate stale browser caches`);
+    }
+
       await page.close();
     }
   }

@@ -285,16 +285,20 @@ h3 { margin-bottom: 10px; font-size: 22px; font-weight: 900; }
 .price-box { display: grid; grid-template-columns: 1fr auto; gap: 30px; align-items: center; padding: 38px; border: 1px solid var(--line); background: var(--white); box-shadow: var(--shadow); }
 .price { color: var(--orange); font-size: clamp(38px, 5vw, 66px); font-weight: 900; line-height: 1; }
 .price small { color: var(--ink); font-size: 14px; }
-.mentor-page .price-amount,
-.mentor-page .number-value,
-.mentor-page .timeline-no,
-.mentor-page .process-index,
+.price-amount,
+.number-value,
+.timeline-no,
+.process-index,
+.step-no,
+.curriculum-no,
+.route-node,
+.cycle-step span,
 .mentor-page .board-grid strong {
   font-family: var(--font-number);
   font-variant-numeric: proportional-nums;
 }
-.mentor-page .price-amount { font-weight: 700; letter-spacing: -.025em; }
-.mentor-page .price-unit {
+.price-amount { font-weight: 700; letter-spacing: -.025em; }
+.price-unit {
   display: inline-block;
   margin-left: .05em;
   font-family: "Zen Kaku Gothic New", "Yu Gothic", sans-serif;
@@ -303,9 +307,9 @@ h3 { margin-bottom: 10px; font-size: 22px; font-weight: 900; }
   line-height: 1;
   vertical-align: baseline;
 }
-.mentor-page .number-feature { display: inline-block; white-space: nowrap; }
-.mentor-page .number-value { display: inline-block; font-size: 1.15em; font-weight: 700; line-height: .9; letter-spacing: -.02em; vertical-align: baseline; }
-.mentor-page .number-unit {
+.number-feature { display: inline-block; white-space: nowrap; }
+.number-value { display: inline-block; font-size: 1.15em; font-weight: 700; line-height: .9; letter-spacing: -.02em; vertical-align: baseline; }
+.number-unit {
   display: inline-block;
   margin-inline: .05em;
   font-family: "Zen Kaku Gothic New", "Yu Gothic", sans-serif;
@@ -314,9 +318,13 @@ h3 { margin-bottom: 10px; font-size: 22px; font-weight: 900; }
   line-height: 1;
   vertical-align: baseline;
 }
-.mentor-page .number-prefix { margin-left: 0; }
-.mentor-page .timeline-no,
-.mentor-page .process-index,
+.number-prefix { margin-left: 0; }
+.timeline-no,
+.process-index,
+.step-no,
+.curriculum-no,
+.route-node,
+.cycle-step span,
 .mentor-page .board-grid strong { font-weight: 700; letter-spacing: .01em; }
 .mentor-offer-summary { display: grid; gap: 7px; margin: 20px 0 16px; padding: 0; list-style: none; color: var(--ink-soft); font-size: 14px; font-weight: 800; }
 .mentor-offer-summary li { position: relative; padding-left: 19px; }
