@@ -33,7 +33,8 @@ const viewports = [
       for (let index = 0; index < imageCount; index += 1) {
         await page.locator('img').nth(index).scrollIntoViewIfNeeded();
       }
-      await page.waitForTimeout(100);
+      await page.locator('img').evaluateAll((images) => Promise.all(images.map((image) => image.decode().catch(() => {}))));
+      await page.waitForTimeout(120);
 
       const result = await page.evaluate(() => ({
         overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
